@@ -1,0 +1,8 @@
+<h1>Events</h1>
+
+<li><% @events.each do |event|  %>
+  <%= event.name  %>
+  <%= event.user.email  %>
+  <%= event.address  %>
+<% end %>
+</li>

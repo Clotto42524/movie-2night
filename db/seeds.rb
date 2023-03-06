@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Cleaning DB"
+
+Event.destroy_all
+
+puts "adding events"
+
+Event.create(name: "2nite's party", address: "Hauptbahnhof", user: User.first)
+Event.create(name: "2morrow's party", address: "Ostbahnhof", user: User.first)
+Event.create(name: "3nite's party", address: "Nordbahnhof", user: User.last)
+Event.create(name: "3morrow's party", address: "Südbahnhof", user: User.last)
+
+puts "done!"
