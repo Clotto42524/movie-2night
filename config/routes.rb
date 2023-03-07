@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get "set_genre"
       get "users"
     end
-
+    # resources :invitations, only: [:update, :create]
   end
-  resources :invitations, only: [:index, :update, :create]
+  resources :invitations, only: [:index]
 end
