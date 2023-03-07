@@ -3,3 +3,11 @@
 <p> <strong> Date: </strong> <%= @event.date %> </p>
 <p> <strong> Address: </strong> <%= @event.address %> </p>
 <p> <strong> Host: </strong> <%= @event.user.email %> </p>
+
+<h3> Add Friends </h3>
+
+<h3> Start movie voting </h3>
+
+<%= link_to "Back to events", events_path %>
+
+<%= link_to "Delete event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
