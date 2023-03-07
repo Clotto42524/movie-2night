@@ -46,7 +46,7 @@ class EventsController < ApplicationController
   end
 
   def users
-    @user = User.all
+    @users = User.all
   end
 
   private
