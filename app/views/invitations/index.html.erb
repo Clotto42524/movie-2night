@@ -1,6 +1,6 @@
 <h1>Invitations</h1>
 
 <ul><% @received_invitations.each do |invitation|  %>
-  <li><%= invitation.event.name  %></li>
-<% end %>
+  <li>You've been invited to: <%= invitation.event.name %>, hosted by <%= invitation.event.user.email %></li>
+  <% end %>
 </ul>
