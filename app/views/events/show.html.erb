@@ -13,4 +13,5 @@
 <%= link_to "Edit event",  edit_event_path(@event)%>
 <%= link_to "Delete event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 
+<%= link_to "See all Users", set_genre_event_path(@event)%>
 <%= link_to "Start movie selection", set_genre_event_path(@event)%>

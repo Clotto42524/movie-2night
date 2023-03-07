@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get "set_decade"
       get "set_genre"
+      get "users"
     end
   end
 end
