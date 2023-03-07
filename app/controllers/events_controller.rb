@@ -45,6 +45,9 @@ class EventsController < ApplicationController
   def set_genre
   end
 
+  def users
+    @users = User.all
+  end
 
   private
 

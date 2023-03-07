@@ -1,0 +1,9 @@
+<h1>All Users</h1>
+
+<ul><% @users.each do |user|  %>
+  <li><%= user.email  %></li>
+<% end %>
+</ul>
+
+<%= link_to "Back to event", event_path %>
+<%= link_to "Add friends", "#" %>

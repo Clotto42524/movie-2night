@@ -1,0 +1,6 @@
+<h1>Invitations</h1>
+
+<ul><% @received_invitations.each do |invitation|  %>
+  <li><%= invitation.event.name  %></li>
+<% end %>
+</ul>

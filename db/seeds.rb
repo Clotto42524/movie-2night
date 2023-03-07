@@ -18,3 +18,16 @@ Event.create(name: "3nite's party", address: "Nordbahnhof", user: User.last)
 Event.create(name: "3morrow's party", address: "Südbahnhof", user: User.last)
 
 puts "done!"
+
+
+
+puts "Cleaning DB"
+
+Invitation.destroy_all
+
+puts "adding invitations"
+
+Invitation.create(event: Event.first, user: User.first)
+Invitation.create(event: Event.last, user: User.last)
+
+puts "done!"
