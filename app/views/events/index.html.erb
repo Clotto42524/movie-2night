@@ -1,8 +1,8 @@
 <h1>Events</h1>
 
-<li><% @events.each do |event|  %>
-  <%= event.name  %>
-  <%= event.user.email  %>
-  <%= event.address  %>
+<ul><% @events.each do |event|  %>
+  <li><%= link_to event.name, event_path(event)  %></li>
+  <li><%= event.user.email  %></li>
+  <li><%= event.address  %></li>
 <% end %>
-</li>
+</ul>
