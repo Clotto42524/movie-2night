@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @selected_movies = SelectedMovie.where(event: @event)
   end
 
   def new
