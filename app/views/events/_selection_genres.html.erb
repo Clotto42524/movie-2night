@@ -1,0 +1,7 @@
+<% movie_types =  %w(Action Adventure Animation Comedy Crime Documentary Drama Family Fantasy History Horror Music Mystery Romance Science-Fiction Thriller War Western) %>
+
+<% movie_types.each do |type| %>
+  <div class="clickable" data-set-genre-target="button" data-action="click->set-genre#toggleButton">
+    <small> <%= type %></small>
+  </div>
+<% end %>

@@ -6,3 +6,9 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import SetDecadeController from "./set_decade_controller"
+application.register("set-decade", SetDecadeController)
+
+import SetGenreController from "./set_genre_controller"
+application.register("set-genre", SetGenreController)
