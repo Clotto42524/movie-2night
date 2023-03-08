@@ -7,7 +7,12 @@ class InvitationsController < ApplicationController
   end
 
   def create
-
+    # @event = Event.find(params[:event_id])
+    # array_of_ids = #
+    # @users = User.where(#array of ids coming from form)
+    # @users.each do |user|
+    #   Invitation.new(event: @event, user: user)
+    #   Invitation.save
   end
 
   def update

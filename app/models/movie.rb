@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-  has_many :movies
+  has_many :selected_movies
 
-  validates :title, :overview, :release_date, :genre, :poster_path, :vote_average, presence: true
+  # validates :title, :overview, :release_date, :genre, :poster_path, :vote_average, presence: true
 end
