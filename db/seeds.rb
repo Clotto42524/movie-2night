@@ -27,7 +27,7 @@ Invitation.destroy_all
 
 puts "adding invitations"
 
-Invitation.create(event: Event.first, user: User.first)
-Invitation.create(event: Event.last, user: User.last)
+Invitation.create(event: Event.first, user: User.last)
+Invitation.create(event: Event.last, user: User.first)
 
 puts "done!"
