@@ -20,7 +20,6 @@ Event.create(name: "3morrow's party", address: "Südbahnhof", user: User.last)
 puts "done!"
 
 
-
 puts "Cleaning DB"
 
 Invitation.destroy_all
@@ -29,5 +28,10 @@ puts "adding invitations"
 
 Invitation.create(event: Event.first, user: User.last)
 Invitation.create(event: Event.last, user: User.first)
+
+Movie.create(title: "Something", overview: "Something longer", release_date: "1994")
+
+
+SelectedMovie.create(event: Event.first, movie: Movie.first)
 
 puts "done!"
