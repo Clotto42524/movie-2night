@@ -5,6 +5,7 @@ class SelectedMoviesController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:event_id])
     @selected_movie = SelectedMovie.find(params[:id])
   end
 

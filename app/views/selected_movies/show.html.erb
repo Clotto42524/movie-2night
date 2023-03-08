@@ -2,3 +2,4 @@
 <p>Vote Count: <%= @selected_movie.vote_count %></p>
 
 <%= link_to "vote for this movie", event_selected_movie_path, data: {turbo_method: :patch} %>
+<%= link_to "Return to event", event_path(@event)  %>
