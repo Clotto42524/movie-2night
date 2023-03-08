@@ -1,0 +1,19 @@
+.footbar {
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+   background-color: white;
+}
+
+.flex-container {
+display: flex;
+justify-content: space-evenly;
+}
+
+.footbar-links {
+  font-size: 40px;
+  padding: 20px;
+  color: black;
+}
