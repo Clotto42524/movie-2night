@@ -1,3 +1,6 @@
+require "json"
+require "open-uri"
+
 class SelectedMoviesController < ApplicationController
 
   def index
@@ -40,15 +43,14 @@ class SelectedMoviesController < ApplicationController
 
     api_key = "78cfc3b30f14c15708feec27e5766e25"
     url = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&sort_by=popularity.desc&with_genres=#{genre_ids_string}&primary_release_year=#{decades_string}&with_original_language=en"
+
     movies_serialized = URI.open(url).read
     movies = JSON.parse(movies_serialized)
     movies_array = movies["results"]
     movies_array.each do |movie|
-      SelectedMovie.new(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: @event).save!
+      SelectedMovie.create(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: @event)
     end
     redirect_to event_path(@event)
-    # @movie = Movie.where(movie: movie.tmdb_id == #id from API response)
-    # SelectedMovie.create(movie: @movie, event: @event)
   end
 
   def update

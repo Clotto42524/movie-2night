@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_161727) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_113424) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,27 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_161727) do
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
-  create_table "movies", force: :cascade do |t|
-    t.string "title"
-    t.text "overview"
-    t.integer "release_date"
-    t.string "genre"
-    t.string "poster_path"
-    t.float "vote_average"
-    t.string "original_title"
-    t.string "original_language"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "selected_movies", force: :cascade do |t|
     t.integer "vote_count", default: 0
-    t.bigint "movie_id", null: false
     t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "overview"
+    t.string "release_date"
+    t.string "poster_path"
     t.index ["event_id"], name: "index_selected_movies_on_event_id"
-    t.index ["movie_id"], name: "index_selected_movies_on_movie_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,5 +62,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_161727) do
   add_foreign_key "invitations", "events"
   add_foreign_key "invitations", "users"
   add_foreign_key "selected_movies", "events"
-  add_foreign_key "selected_movies", "movies"
 end

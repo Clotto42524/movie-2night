@@ -1,7 +1,15 @@
 <div class="footbar">
   <div class="flex-container">
-      <a href="#"><i class="footbar-links fa-sharp fa-solid fa-calendar-days"></i></a>
-      <a href="#"><i class="footbar-links fa-sharp fa-solid fa-circle-plus"></i></a>
-      <a href="#"><i class="footbar-links fa-sharp fa-solid fa-envelope"></i></a>
+    <%= link_to(events_path) do %>
+    <i class="footbar-links fa-sharp fa-solid fa-calendar-days"></i>
+    <% end %>
+
+    <%= link_to(new_event_path) do %>
+    <i class="footbar-links fa-sharp fa-solid fa-circle-plus"></i>
+    <% end %>
+
+    <%= link_to(invitations_path) do %>
+    <i class="footbar-links fa-sharp fa-solid fa-envelope"></i>
+    <% end %>
   </div>
 </div>
