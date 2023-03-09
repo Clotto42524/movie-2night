@@ -10,7 +10,8 @@ class SelectedMoviesController < ApplicationController
   end
 
   def create
-    # @event = Event.find(params[:event_id])
+    raise 
+    @event = Event.find(params[:id])
     # @movie = Movie.where(movie: movie.tmdb_id == #id from API response)
     # SelectedMovie.create(movie: @movie, event: @event)
   end

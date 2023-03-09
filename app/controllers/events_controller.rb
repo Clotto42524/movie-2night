@@ -48,23 +48,30 @@ class EventsController < ApplicationController
     url = "https://api.themoviedb.org/3/genre/movie/list?api_key=#{api_key}&language=en-US"
     genres_serialized = URI.open(url).read
     genres = JSON.parse(genres_serialized)
-    @genres = []
     genres_hash = genres["genres"]
-    genres_hash.map do |genre|
-      @genres << genre["name"]
+    @genres = genres_hash.map do |genre|
+      genre["name"]
     end
   end
 
   def set_decade
-    api_key = "78cfc3b30f14c15708feec27e5766e25"
-    url_year = "https://api.themoviedb.org/3/movie/{movie_id}/release_dates?api_key=#{api_key}"
-    years_serialized = URI.open(url_year).read
-    years = JSON.parse(genres_serialized)
-    @years = []
-    years_hash = release_dates["release_dates"]
-    years_hash.map do |year|
-      @years << year["year"]
-    end
+    raise 
+    session[:genres] = params[:genre_ids]
+    @event = Event.find(params[:id])
+
+    release_years = {
+      "2020s" => [2020..2023],
+      "2010s" => [2010..2019],
+      "2000s" => [2000..2009],
+      "1990s" => [1990..1999],
+      "1980s" => [1980..1989],
+      "1970s" => [1970..1979],
+      "1960s" => [1960..1969],
+      "1950s" => [1950..1959],
+      "sub_1950s" => [1890..1949]
+    }
+
+    @decades = release_years.keys
   end
 
   def users
