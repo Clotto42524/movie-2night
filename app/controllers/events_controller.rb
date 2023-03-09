@@ -51,11 +51,12 @@ class EventsController < ApplicationController
     @genres = []
     genres_hash = genres["genres"]
     genres_hash.map do |genre|
-      genre["name"]
+      @genres << genre["name"]
     end
   end
 
   def set_decade
+    raise
   end
 
   def users
@@ -65,7 +66,7 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
   end
 
   def event_params
