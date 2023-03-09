@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_101421) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_113424) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,8 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_101421) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "overview"
-    t.date "release_date"
-    t.string "genre"
+    t.string "release_date"
     t.string "poster_path"
     t.index ["event_id"], name: "index_selected_movies_on_event_id"
   end
