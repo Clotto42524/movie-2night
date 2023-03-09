@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get "users"
     end
     resources :selected_movies, only: [:index, :show, :update, :create]
-    # resources :invitations, only: [:create]
+    resources :invitations, only: [:create]
   end
-  resources :invitations, only: [:index]
+  resources :invitations, only: [:index, :update, :destroy]
 end

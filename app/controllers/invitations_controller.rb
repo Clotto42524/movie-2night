@@ -13,9 +13,19 @@ class InvitationsController < ApplicationController
     # @users.each do |user|
     #   Invitation.new(event: @event, user: user)
     #   Invitation.save
+    # end
   end
 
   def update
-
+    @invitation = Invitation.find(params[:id])
+    @invitation.accepted = true
+    @invitation.save
   end
+
+  def destroy
+    @invitation = Invitation.find(params[:id])
+    @invitation.destroy
+    redirect_to invitations_path
+  end
+
 end
