@@ -55,7 +55,7 @@ class EventsController < ApplicationController
   end
 
   def set_decade
-    raise 
+
     session[:genres] = params[:genre_ids]
     @event = Event.find(params[:id])
 
