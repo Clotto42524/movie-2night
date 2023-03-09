@@ -1,17 +1,72 @@
+// see button.html.erb for the full code //
+
 .btn-cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 0px;
-  gap: 10px;
-  position: absolute;
-  width: 342px;
-  height: 52px;
-  left: 24px;
-  top: 768px;
+width: 342px;
+height: 52px;
+display: flex;
+flex-direction: row;
+background-color: #5A6FCC;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+padding: 14px 0px;
+gap: 10px;
 }
 
+// btn-cta on click: //
+.btn-cta:hover {
+  background-color: #2549EB;
+}
+
+// btn-cta greyed out //
+.btn-cta-grey {
+width: 342px;
+height: 52px;
+display: flex;
+flex-direction: row;
+background-color: #A2A6B9;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+padding: 14px 0px;
+gap: 10px;
+}
+
+// back button //
+.btn-back {
+  color: #A2A6B9;
+  margin: 10px;
+  font-size: 40px;
+}
+
+// btn genre not selected yet //
+.btn-genre-grey {
+  width: fit-content;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+  background-color: #A2A6B9;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+}
+
+
+// btn genre selected //
+.btn-genre {
+  width: fit-content;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+  background-color: #2549EB;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+}
 
 
 
