@@ -1,38 +1,110 @@
-.btn-select-container {
+// see button.html.erb for the full code //
+
+.btn-cta {
+width: 342px;
+height: 52px;
+display: flex;
+flex-direction: row;
+background-color: #5A6FCC;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+padding: 14px 0px;
+gap: 10px;
+}
+
+// btn-cta on click: //
+.btn-cta:hover {
+  background-color: #2549EB;
+}
+
+// btn-cta greyed out //
+.btn-cta-grey {
+width: 342px;
+height: 52px;
+display: flex;
+flex-direction: row;
+background-color: #A2A6B9;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+padding: 14px 0px;
+gap: 10px;
+}
+
+// back button //
+.btn-back {
+  color: #A2A6B9;
+  margin: 10px;
+  font-size: 40px;
+}
+
+// btn genre not selected yet //
+.btn-genre-grey {
+  width: fit-content;
+  height: 52px;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  flex-direction: row;
+  background-color: #A2A6B9;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
 }
 
-.clickable {
-  padding: 40px;
-  width: 160px;
-  border: 1px solid #dedede;
-  color: #a0a0a0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  text-align: center;
+
+// btn genre selected //
+.btn-genre {
+  width: fit-content;
+  height: 52px;
   display: flex;
-  flex-direction: column;
-  cursor: pointer;
+  flex-direction: row;
+  background-color: #2549EB;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
 }
 
-.clickable i {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
 
-.clickable:hover i {
-  color: #52ACF4;
-}
 
-.clickable.active {
-  color: inherit;
-  border-color: inherit;
-}
+// .btn-select-container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-.clickable.active i {
-  color: #52ACF4;
-}
+// .clickable {
+//   padding: 40px;
+//   width: 160px;
+//   border: 1px solid #dedede;
+//   color: #a0a0a0;
+//   margin-right: 10px;
+//   margin-bottom: 10px;
+//   text-align: center;
+//   display: flex;
+//   flex-direction: column;
+//   cursor: pointer;
+// }
+
+// .clickable i {
+//   font-size: 24px;
+//   margin-bottom: 10px;
+// }
+
+// .clickable:hover i {
+//   color: #52ACF4;
+// }
+
+// .clickable.active {
+//   color: inherit;
+//   border-color: inherit;
+// }
+
+// .clickable.active i {
+//   color: #52ACF4;
+// }
