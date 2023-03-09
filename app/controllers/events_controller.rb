@@ -56,7 +56,15 @@ class EventsController < ApplicationController
   end
 
   def set_decade
-    raise
+    api_key = "78cfc3b30f14c15708feec27e5766e25"
+    url_year = "https://api.themoviedb.org/3/movie/{movie_id}/release_dates?api_key=#{api_key}"
+    years_serialized = URI.open(url_year).read
+    years = JSON.parse(genres_serialized)
+    @years = []
+    years_hash = release_dates["release_dates"]
+    years_hash.map do |year|
+      @years << year["year"]
+    end
   end
 
   def users

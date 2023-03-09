@@ -1,23 +1,18 @@
-<%# Selection class is required to create new instance of information gathered in form  %>
+<div class=container>
 
-<% api_key = "78cfc3b30f14c15708feec27e5766e25" %>
-<% url = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&sort_by=popularity.desc&with_genres=#{genre_ids}&primary_release_year=#{release_years}&with_original_language=en" %>
-<%# genre_id's to be string generated from array.join(",") %>
-<%# release_years to be string generated from array.join(",") %>
+  <%# By default form is post, must specify get as it goes to decade and we take params %>
+  <%# must post to API in url %>
+  <%= form_with url: set_decade_event_path, method: :get do |f| %>
+    <ul>
+      <% @genres.each do |genre| %>
+      <%# change %>
+          <li>
+            <%= check_box_tag 'genre_ids[]', genre, false %>
+            <%= genre  %>
+          </li>
+      <% end %>
+    </ul>
+          <%= f.submit "continue" %>
+  <% end %>
 
-
-<%= form_with url:   do |f| %>
-  <%= f.input :2010s, as: :check_boxes %>
-  <%= f.input :2000s, as: :check_boxes %>
-  <%= f.input :1990s, as: :check_boxes %>
-  <%= f.input :1980s, as: :check_boxes %>
-  <%= f.input :1970s, as: :check_boxes %>
-  <%= f.input :1960s, as: :check_boxes %>
-  <%= f.submit %>
-<% end %>
-
-
-
-<%# <%= form_with url: posts_path do |f| %>
-<%# <%= f.text_field :content %>
-<%# <% end %>
+</div>
