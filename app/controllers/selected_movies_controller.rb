@@ -13,7 +13,7 @@ class SelectedMoviesController < ApplicationController
   end
 
   def create
-    # @event = Event.find(params[:event_id])
+    @event = Event.find(params[:event_id])
     api_key = "78cfc3b30f14c15708feec27e5766e25"
     # genre_id's to be string generated from array.join(",")
     # release_years to be string generated from array.join(",")
@@ -22,7 +22,7 @@ class SelectedMoviesController < ApplicationController
     movies = JSON.parse(movies_serialized)
     movies_array = movies["results"]
     movies_array.each do |movie|
-      SelectedMovie.create(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: Event.first)
+      SelectedMovie.create(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: @event)
     end
   end
 
