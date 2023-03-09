@@ -1,6 +1,24 @@
-.info-tags {
-  background-color: red;
+.info-tag h3,
+.info-tag p {
+  //background-color: red;
+  display: inline-block;
+
 }
-h3 {
-  display: inline;
+
+.header-show {
+  background-color: red;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.button-start {
+  background-color: red;
+  position: absolute;
+  width: 100vh;
+}
+
+.center {
+  position: relative;
+  align-items: center;
+  border: 3px solid yellow;
 }

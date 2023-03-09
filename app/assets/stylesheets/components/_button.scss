@@ -16,6 +16,11 @@ gap: 10px;
 // btn-cta on click: //
 .btn-cta:hover {
   background-color: #2549EB;
+  color: #F6F8FC;
+}
+
+.btn-cta:hover a {
+  color: #F6F8FC;
 }
 
 // btn-cta greyed out //
