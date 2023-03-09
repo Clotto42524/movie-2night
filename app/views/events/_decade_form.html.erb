@@ -6,7 +6,7 @@
 <%# release_years to be string generated from array.join(",") %>
 
 
-<%= form_with url: api_key  do |f| %>
+<%= form_with url:   do |f| %>
   <%= f.input :2010s, as: :check_boxes %>
   <%= f.input :2000s, as: :check_boxes %>
   <%= f.input :1990s, as: :check_boxes %>
@@ -16,8 +16,8 @@
   <%= f.submit %>
 <% end %>
 
+
+
 <%# <%= form_with url: posts_path do |f| %>
 <%# <%= f.text_field :content %>
 <%# <% end %>
-
-

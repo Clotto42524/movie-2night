@@ -1,3 +1,6 @@
+require "json"
+require "open-uri"
+
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -40,10 +43,19 @@ class EventsController < ApplicationController
     redirect_to events_path, status: :see_other
   end
 
-  def set_decade
+  def set_genre
+    api_key = "78cfc3b30f14c15708feec27e5766e25"
+    url = "https://api.themoviedb.org/3/genre/movie/list?api_key=#{api_key}&language=en-US"
+    genres_serialized = URI.open(url).read
+    genres = JSON.parse(genres_serialized)
+    @genres = []
+    genres_hash = genres["genres"]
+    genres_hash.map do |genre|
+      genre["name"]
+    end
   end
 
-  def set_genre
+  def set_decade
   end
 
   def users

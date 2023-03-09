@@ -1,0 +1,19 @@
+<%# <% require 'json' %>
+
+
+
+<%#  check_box_tag(name, value = "1", checked = false, options = {}) %>
+<%#  order name, value, false, %>
+
+<%# "genre_ids"=>["1", "2", "3"] %>
+
+<%= form_with selection_decades_path do |f| %>
+  <ul>
+    <% @genres.each do |genre| %>
+        <li>
+          <%= check_box_tag 'genre_ids[]', genre.id -%>
+          <%= h genre.name -%>
+        </li>
+    <% end %>
+  </ul>
+<% end %>
