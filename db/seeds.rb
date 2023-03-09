@@ -29,9 +29,5 @@ puts "adding invitations"
 Invitation.create(event: Event.first, user: User.last)
 Invitation.create(event: Event.last, user: User.first)
 
-Movie.create(title: "Something", overview: "Something longer", release_date: "1994")
-
-
-SelectedMovie.create(event: Event.first, movie: Movie.first)
 
 puts "done!"
