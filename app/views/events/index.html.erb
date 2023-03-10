@@ -1,15 +1,15 @@
 <h1>Events</h1>
 
-<ul>
-<% @events.each do |event|  %>
-  <%= link_to "<div class="events-display">" event_path(event) %>
-    <p><%= event.date %></p>
-    <p><%= event.name %></p>
-  </div>
-  <!--<p><%= event.user.email  %></p>-->
-  <!--<li><%= event.address  %></li>-->
+
+<div>
+<% @events.each do |event| %>
+    <%= link_to event_path(event) do %>
+    <div class="text-center">
+      <button class="button-event"><p class="texts"><%= event.date %> <%= event.name %></p></button>
+    </div>
+    <% end %>
   <% end %>
-</ul>
+</div>
 
 <%# footbar %>
 <div class="footbar">
