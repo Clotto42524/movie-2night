@@ -14,8 +14,8 @@ class SelectedMoviesController < ApplicationController
   end
 
   def create
-
     @event = Event.find(params[:id])
+    @event.selected_movies.destroy_all
 
     genres_hash = {"Action" => 28, "Adventure" => 12, "Animation" => 16, "Comedy" => 35, "Crime" => 80, "Documentary" => 99, "Drama" => 18, "Family" => 10751, "Fantasy" => 14, "History" => 36, "Horror" => 27, "Music" => 10402, "Mystery" => 9648, "Romance" => 10749, "Science Fiction" => 878, "Thriller" => 53, "War" => 10752, "Western" => 37 }
     genres_array = session[:genres]
@@ -51,13 +51,18 @@ class SelectedMoviesController < ApplicationController
     movies_array.each do |movie|
       SelectedMovie.create(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: @event)
     end
-    redirect_to event_path(@event)
+    redirect_to event_selected_movies_path(@event)
   end
 
   def update
     @movie = SelectedMovie.find(params[:id])
     @movie.vote_count += 1
     @movie.save!
-    redirect_to event_selected_movie_path
+  end
+
+  def downvote
+    @movie = SelectedMovie.find(params[:id])
+    @movie.vote_count -= 1
+    @movie.save!
   end
 end

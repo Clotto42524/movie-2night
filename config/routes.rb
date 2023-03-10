@@ -12,8 +12,10 @@ Rails.application.routes.draw do
       get "users"
       post "selected_movies", to: "selected_movies#create"
     end
-    resources :selected_movies, only: [:index, :show, :update]
+    resources :selected_movies, only: [:index, :show]
     resources :invitations, only: [:create]
   end
+  resources :selected_movies, only: [:update]
+  patch "selected_movies", to: "selected_movies#downvote"
   resources :invitations, only: [:index, :update, :destroy]
 end
