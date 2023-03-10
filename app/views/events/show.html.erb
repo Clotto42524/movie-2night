@@ -50,16 +50,16 @@
 
 
   <%# Clyde works on this %>
-  <div class="container-links">
+  <!--<div class="container-links">
     <% if @event.invitations.empty? %>
-      <%= link_to "Add friends", users_event_path %>
-    <% else %>
-      <%# <% @event.invitations.each do |invitee| %>
-        <%# <%= invitee.user.email %>
-      <%# <% end %>
       <%= link_to "Add friends", users_event_path, class: "d-none" %>
-    <% end %>
-    <br>
+    <% else %>
+      <% @event.invitations.each do |invitee| %>
+        <%= invitee.user.email %>
+      <% end %>
+      <%= link_to "Add friends", users_event_path  %>
+    <% end %>-->
+        <br>
 
 
   <%# Button Next/Start %>
