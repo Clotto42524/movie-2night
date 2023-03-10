@@ -59,10 +59,4 @@ class SelectedMoviesController < ApplicationController
     @movie.vote_count += 1
     @movie.save!
   end
-
-  def downvote
-    @movie = SelectedMovie.find(params[:id])
-    @movie.vote_count -= 1
-    @movie.save!
-  end
 end

@@ -1,15 +1,17 @@
 <h1>Your Movie Selection</h1>
 
-<div class="container">
+<div class="container" data-controller="voting">
   <div class="cards">
-    <%= @event.selected_movies.each do |movie| %>
+    <% @event.selected_movies.each do |movie| %>
       <div class="card" style="width: 18rem;">
         <%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}", class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= movie.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= movie.overview %></h6>
-          <p><%= link_to "❌", selected_movies_path(movie), data: {turbo_method: :patch}, class: "btn btn-success mt-2" %></p>
-          <p><%= link_to "✅", selected_movie_path(movie), data: {turbo_method: :patch}, class: "btn btn-success mt-2" %></p>
+          <div>
+            <p data-voting-target="votes" data-action="click->voting#vote"><%= link_to "No", "#", class: "btn btn-primary" %></p>
+            <p data-voting-target="votes" data-action="click->voting#vote"><%= link_to "Yes", selected_movie_path(movie), data: {turbo_method: :patch}, class: "btn btn-primary" %></p>
+          </div>
         </div>
       </div>
     <% end %>

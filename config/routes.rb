@@ -16,6 +16,5 @@ Rails.application.routes.draw do
     resources :invitations, only: [:create]
   end
   resources :selected_movies, only: [:update]
-  patch "selected_movies", to: "selected_movies#downvote"
   resources :invitations, only: [:index, :update, :destroy]
 end
