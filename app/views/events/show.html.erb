@@ -1,60 +1,70 @@
 <div class="container_show">
-  <%= link_to(events_path) do %>
-  <i class="btn-back"><i class="fa-solid fa-arrow-left"></i>
-  <% end %>
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(events_path) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
+      <% end %>
+    </div>
 
-  <div class="header-name">
+
+  <%# Header with icons %>
+  <div class="header-name d-flex justify-content-around">
     <h2><%= @event.name %></h2>
 
     <%= link_to(edit_event_path(@event)) do %>
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
     <% end %>
 
-    <%= link_to(event_path(@event)) do %>
-    <i class="fa-solid fa-trash"></i>
+    <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
+    <i class="fa-solid fa-trash icons-pen-trash"></i>
     <% end %>
   </div>
 
+
+  <%# Image %>
   <div>
-    <img class="popcorn" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
+    <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
   </div>
 
-  <div class="info-tag">
+
+  <%# Div with Hostinfos/Pic %>
+  <div class="user-tags">
       <h3>Host: </h3>
       <p><%= @event.user.email %> </p>
     </div>
   </div>
 
+
+  <%# Date/Address Tags %>
   <div class="tags">
     <div class="info-tag">
-      <h3>Date: </h3><br>
-      <div class="display-info"><p><%= @event.date %></p></div>
+      <h3>Date:</h3>
+        <p class="display-info"><%= @event.date %></p>
     </div>
 
-
     <div class="info-tag">
-      <h3>Address: </h3><br>
-      <p><%= @event.address %> </p>
+      <h3><i class="fa-solid fa-location-dot"></i> Address: </h3><br>
+      <p class="display-info"><%= @event.address %></p>
     </div>
   </div>
 
 
-
-
-
+  <%# Clyde works on this %>
   <div class="container-links">
-    <%# LINK IS WRONG!! %>
-    <%= link_to "Start movie voting",  edit_event_path(@event)%>
+    <% if @event.invitations.empty? %>
+      <%= link_to "Add friends", users_event_path %>
+    <% else %>
+      <%# <% @event.invitations.each do |invitee| %>
+        <%# <%= invitee.user.email %>
+      <%# <% end %>
+      <%= link_to "Add friends", users_event_path, class: "d-none" %>
+    <% end %>
     <br>
-    <%= link_to "Edit event",  edit_event_path(@event)%>
-    <br>
-    <%= link_to "Delete event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-    <br>
-    <%= link_to "See all Users", users_event_path%>
-    <br>
+
+
+  <%# Button Next/Start %>
     <div class="button-start">
       <div class="btn-cta"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
     </div>
   </div>
-
 </div>
