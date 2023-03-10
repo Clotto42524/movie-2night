@@ -1,3 +1,4 @@
+<!-- General design / copy that to every page -->
 <div class="container">
   <div class="row-header">
     <div class="back-button">
@@ -6,20 +7,29 @@
       <% end %>
     </div>
   </div>
+<!-- General design / copy that to every page -->
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
   <div class="row-body">
     <div class="body-event">
-      <h2 class="event-header"> Create a new Event </h2>
-        <div class="form-content">
-          <%= simple_form_for @event do |f| %>
-            <%= f.input :name %>
-            <%= f.input :date %>
-            <%= f.input :address %>
-        </div>
+      <div class="body-title pt-2 pb-4">
+        <h2 class="event-header"> Create a new Event </h2>
+      </div>
+      <div class="form-content">
+        <%= simple_form_for @event do |f| %>
+          <%= f.input :name %>
+          <%= f.input :date %>
+          <%= f.input :address %>
+      </div>
     </div>
+<!-- Body of the page / different code -->
+<!-- General design / copy that to every page -->
+    <div class="row-cta d-flex  py-4 px-2">
+      <div class="submit-button">
+        <div class="btn-cta">
+          <%= f.button :submit %>
+            <% end %>
         </div>
-  <div class="row-cta">
-  <%= f.button :submit %>
-          <% end %>
-  </div>
-
-</div>
+      </div>
+    </div>
+  </div> <!-- CLOSING BODY-->
+</div> <!-- CLOSING CONTAINER-->

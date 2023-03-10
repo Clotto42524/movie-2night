@@ -17,13 +17,21 @@
   // height: 50vh;
 }
 
-.event-header {
-  margin-top: 50px;
+// Copy paste that for every page //
+
+.body-title {
   text-align: center;
 }
 
 .row-cta {
-  position:fixed;
-  bottom:0;
-  width:100%;
+position: fixed;
+bottom: 0;
+left: 50%;
+transform: translate(-50%, -0%);
+background-color: #070D2D ;
 }
+
+// Use those properties if you have too much content and need to scroll down. It creates a padding on top of the cta-button
+// .text-scroll {
+//   padding-bottom: 100px;
+// }
