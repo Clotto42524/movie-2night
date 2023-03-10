@@ -4,7 +4,8 @@ require "open-uri"
 class SelectedMoviesController < ApplicationController
 
   def index
-    @selected_movies = SelectedMovie.all
+    @event = Event.find(params[:event_id])
+    @selected_movies = SelectedMovie.where(event: @event)
   end
 
   def show
