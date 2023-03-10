@@ -75,7 +75,9 @@ class EventsController < ApplicationController
   end
 
   def users
-    @users = User.all
+    @users = User.all - [current_user]
+    @event = Event.find(params[:id])
+    @invitation = Invitation.new
   end
 
   private
