@@ -3,8 +3,21 @@
   <i class="btn-back"><i class="fa-solid fa-arrow-left"></i>
   <% end %>
 
-  <div class="header-show">
+  <div class="header-name">
     <h2><%= @event.name %></h2>
+
+    <%= link_to(edit_event_path(@event)) do %>
+    <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+
+    <%= link_to(event_path(@event)) do %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </div>
+
+
+  <div>
+    <img class="popcorn" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
   </div>
 
   <div class="tags">
@@ -19,7 +32,6 @@
       <p><%= @event.address %> </p>
     </div>
 
-  <h3> Start movie voting </h3>
 
     <div class="info-tag">
       <h3>Host: </h3>
@@ -27,9 +39,11 @@
     </div>
   </div>
 
-  <h4> Add Friends </h4>
 
   <div class="container-links">
+    <%# LINK IS WRONG!! %>
+    <%= link_to "Start movie voting",  edit_event_path(@event)%>
+    <br>
     <%= link_to "Edit event",  edit_event_path(@event)%>
     <br>
     <%= link_to "Delete event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
