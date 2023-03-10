@@ -1,0 +1,13 @@
+<h1>Your top movie picks!</h1>
+
+<% @top_movies.each do |movie|  %>
+<img src=<%= movie.poster_path %>  width="150" height="200">
+<p>Title: <%= movie.title %></p>
+<p>Overview: <%= movie.overview %></p>
+<p>Release Date: <%= movie.release_date %></p>
+<p>Vote count: <%= movie.vote_count %></p>
+<% end %>
+
+<h2><%= link_to "Back to your event", event_path(@event)%></h2>
+
+
