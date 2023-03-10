@@ -15,29 +15,31 @@
     <% end %>
   </div>
 
-
   <div>
     <img class="popcorn" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
   </div>
 
-  <div class="tags">
-    <div class="info-tag">
-      <h3>Date: </h3>
-      <p><%= @event.date %> </p>
-    </div>
-
-
-    <div class="info-tag">
-      <h3>Address: </h3>
-      <p><%= @event.address %> </p>
-    </div>
-
-
-    <div class="info-tag">
+  <div class="info-tag">
       <h3>Host: </h3>
       <p><%= @event.user.email %> </p>
     </div>
   </div>
+
+  <div class="tags">
+    <div class="info-tag">
+      <h3>Date: </h3><br>
+      <div class="display-info"><p><%= @event.date %></p></div>
+    </div>
+
+
+    <div class="info-tag">
+      <h3>Address: </h3><br>
+      <p><%= @event.address %> </p>
+    </div>
+  </div>
+
+
+
 
 
   <div class="container-links">
