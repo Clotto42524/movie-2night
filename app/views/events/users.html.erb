@@ -1,9 +1,19 @@
 <h1>All Users</h1>
 
-<ul><% @users.each do |user|  %>
-  <li><%= user.email  %></li>
-<% end %>
-</ul>
+<div class=container>
+
+  <%= form_with url: event_invitations_path(@event, @invitations), method: :post do |f| %>
+    <ul>
+      <% @users.each do |user| %>
+          <li>
+            <%= check_box_tag 'users[]', user.email, false %>
+            <%= user.email  %>
+          </li>
+      <% end %>
+    </ul>
+          <%= f.submit "Invite Friends" %>
+  <% end %>
+
+</div>
 
 <%= link_to "Back to event", event_path %>
-<%= link_to "Add friends", "#" %>
