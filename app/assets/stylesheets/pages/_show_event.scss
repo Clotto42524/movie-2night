@@ -1,0 +1,21 @@
+.container_show {
+  position: relative;
+}
+
+.info-tag h3,
+.info-tag p {
+  display: inline-block;
+}
+
+.header-show {
+  text-align: center;
+}
+
+.button-start {
+  height: 52px;
+  display: float;
+  align-items: flex-end;
+  position: absolute;
+  bottom: -64px;
+  right: 16px;
+}

@@ -1,13 +1,14 @@
 <div class="container_new">
-    <h2> Create a new Event </h2>
-  <div class="border d-flex align-items-center justify-content-center">
-    <%# <div class="form-content"> %>
-    <%= simple_form_for @event do |f| %>
-      <%= f.input :name %>
-      <%= f.input :date %>
-      <%= f.input :address %>
-      <%= f.button :submit %>
-    <% end %>
+  <div class="wrap">
+    <h2 class="event-header"> Create a new Event </h2>
+
+    <div class="form-content">
+      <%= simple_form_for @event do |f| %>
+        <%= f.input :name %>
+        <%= f.input :date %>
+        <%= f.input :address %>
+        <%= f.button :submit %>
+      <% end %>
     </div>
   </div>
 </div>
