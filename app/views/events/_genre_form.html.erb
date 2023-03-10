@@ -1,0 +1,24 @@
+<%# <% require 'json' %>
+<%#  check_box_tag(name, value = "1", checked = false, options = {}) %>
+
+
+<div class=container>
+
+  <%# By default form is post, must specify get as it goes to decade and we take params %>
+  <%= form_with url: set_decade_event_path, method: :get do |f| %>
+    <ul>
+      <% @genres.each do |genre| %>
+          <li>
+            <%= check_box_tag 'genre_ids[]', genre, false %>
+            <%= genre  %>
+          </li>
+      <% end %>
+    </ul>
+          <%= f.submit "continue" %>
+  <% end %>
+
+</div>
+
+
+<%# I think we want to send the id's not the names %>
+<%# We use the names as labels, send id's in params %>

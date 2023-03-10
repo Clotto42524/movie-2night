@@ -10,8 +10,9 @@ Rails.application.routes.draw do
       get "set_decade"
       get "set_genre"
       get "users"
+      post "selected_movies", to: "selected_movies#create"
     end
-    resources :selected_movies, only: [:index, :show, :update, :create]
+    resources :selected_movies, only: [:index, :show, :update]
     resources :invitations, only: [:create]
   end
   resources :invitations, only: [:index, :update, :destroy]
