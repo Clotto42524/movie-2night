@@ -1,7 +1,7 @@
 <h1>Your top movie picks!</h1>
 
 <% @top_movies.each do |movie|  %>
-<img src=<%= movie.poster_path %>  width="150" height="200">
+<%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}" %>
 <p>Title: <%= movie.title %></p>
 <p>Overview: <%= movie.overview %></p>
 <p>Release Date: <%= movie.release_date %></p>
@@ -9,5 +9,3 @@
 <% end %>
 
 <h2><%= link_to "Back to your event", event_path(@event)%></h2>
-
-
