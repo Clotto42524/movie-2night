@@ -2,7 +2,7 @@
 
 <div class=container>
 
-  <%= form_with url: event_invitations_path(@event, @invitations), method: :post do |f| %>
+  <%= form_with url: event_invitations_path(@event), method: :post do |f| %>
     <ul>
       <% @users.each do |user| %>
           <li>
