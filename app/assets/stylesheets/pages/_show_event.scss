@@ -2,6 +2,13 @@
   position: relative;
 }
 
+.popcorn {
+  width: 342px;
+  height: 200px;
+  top: 126px;
+  right: 16px;
+}
+
 .info-tag h3,
 .info-tag p {
   display: inline-block;
@@ -16,6 +23,6 @@
   display: float;
   align-items: flex-end;
   position: absolute;
-  bottom: -64px;
+  bottom: -126px;
   right: 16px;
 }
