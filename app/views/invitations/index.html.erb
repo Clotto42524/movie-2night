@@ -6,6 +6,8 @@
       <ul><% @received_invitations.each do |invitation|  %>
         <p>You've been invited to:</p>
         <li><%= invitation.event.name %>, hosted by <%= invitation.event.user.email %></li>
+        <li><%= link_to "Accept", invitation_path(invitation), data: {turbo_method: :patch}  %></li>
+        <li><%= link_to "Decline", invitation_path(invitation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
         <% end %>
       </ul>
     </div>
