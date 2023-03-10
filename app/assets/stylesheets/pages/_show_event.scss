@@ -2,16 +2,17 @@
   position: relative;
 }
 
-.popcorn {
+.projector {
   width: 342px;
   height: 200px;
-  top: 126px;
-  right: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .info-tag h3,
 .info-tag p {
   display: inline-block;
+  margin: 5px;
 }
 
 .header-show {
@@ -25,4 +26,21 @@
   position: absolute;
   bottom: -126px;
   right: 16px;
+}
+
+.header-name {
+  display: flex;
+}
+
+
+.display-info {
+  background-color: #151935;
+  border-radius: 10px;
+  width: 342px;
+  height: 34px;
+  padding: 5px 0;
+}
+
+.icons-pen-trash {
+  font-size: 20px;
 }
