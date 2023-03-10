@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       get "users"
       post "selected_movies", to: "selected_movies#create"
     end
-    resources :selected_movies, only: [:index, :show, :update,] do
+
+    resources :selected_movies, only: [:index, :show] do
       collection do
         get "top"
       end
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
 
     resources :invitations, only: [:create]
   end
+  resources :selected_movies, only: [:update]
   resources :invitations, only: [:index, :update, :destroy]
 end
