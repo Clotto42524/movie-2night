@@ -2,7 +2,7 @@
 <%#  check_box_tag(name, value = "1", checked = false, options = {}) %>
 
 
-<div class=container>
+
 
   <%# By default form is post, must specify get as it goes to decade and we take params %>
   <%= form_with url: set_decade_event_path, method: :get do |f| %>
@@ -17,7 +17,7 @@
           <%= f.submit "continue" %>
   <% end %>
 
-</div>
+
 
 
 <%# I think we want to send the id's not the names %>

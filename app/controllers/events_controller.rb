@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    if @event.save
+    if @event.save!
       redirect_to event_path(@event)
     else
       render :edit, status: :unprocessable_entity
