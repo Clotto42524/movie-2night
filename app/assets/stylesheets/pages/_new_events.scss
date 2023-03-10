@@ -11,13 +11,19 @@
 .form-content {
   margin-left: 50px;
   margin-right: 50px;
-  margin-top: 50px;
+  // margin-top: 50px;
   //border: 3px solid green;
   align-items: center;
-  height: 70vh;
+  // height: 50vh;
 }
 
 .event-header {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
+}
+
+.row-cta {
+  position:fixed;
+  bottom:0;
+  width:100%;
 }

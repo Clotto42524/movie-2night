@@ -1,14 +1,25 @@
-<div class="container_new">
-  <div class="wrap">
-    <h2 class="event-header"> Create a new Event </h2>
-
-    <div class="form-content">
-      <%= simple_form_for @event do |f| %>
-        <%= f.input :name %>
-        <%= f.input :date %>
-        <%= f.input :address %>
-        <%= f.button :submit %>
+<div class="container">
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(events_path) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
       <% end %>
     </div>
   </div>
+  <div class="row-body">
+    <div class="body-event">
+      <h2 class="event-header"> Create a new Event </h2>
+        <div class="form-content">
+          <%= simple_form_for @event do |f| %>
+            <%= f.input :name %>
+            <%= f.input :date %>
+            <%= f.input :address %>
+        </div>
+    </div>
+        </div>
+  <div class="row-cta">
+  <%= f.button :submit %>
+          <% end %>
+  </div>
+
 </div>
