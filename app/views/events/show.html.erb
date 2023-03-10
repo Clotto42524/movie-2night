@@ -49,17 +49,24 @@
   </div>
 
 
-  <%# Clyde works on this %>
+  <h3>Your Guests:</h3>
   <div class="container-links">
     <% if @event.invitations.empty? %>
-      <%= link_to "Add friends", users_event_path %>
-    <% else %>
-      <%# <% @event.invitations.each do |invitee| %>
-        <%# <%= invitee.user.email %>
-      <%# <% end %>
       <%= link_to "Add friends", users_event_path, class: "d-none" %>
+    <% else %>
+      <% @event.invitations.each do |invitee| %>
+        <% if invitee.accepted == true %>
+          <%= invitee.user.email %>
+          <%= "✅" %>
+        <% else %>
+          <%= invitee.user.email %>
+          <%= "❌" %>
+        <% end %>
+      <% end %>
+      <br>
+      <%= link_to "Add friends", users_event_path  %>
     <% end %>
-    <br>
+<br>
 
 
   <%# Button Next/Start %>

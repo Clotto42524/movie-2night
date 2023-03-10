@@ -9,7 +9,8 @@ export default class extends Controller {
 
   vote(event) {
     event.preventDefault()
-    this.voteTarget.classList.remove("btn btn-primary")
-    this.voteTarget.classList.add("btn btn-primary disabled")
+    this.votesTargets.forEach((button) => {
+      button.classList.add("disabled")
+    })
   }
 }
