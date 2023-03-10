@@ -1,33 +1,32 @@
 <div class="container_show">
-  <div class="header-show">
-  <h2><%= @event.name %></h2>
-  </div>
-
-  <div class="info-tag">
-    <h3>Date: </h3>
-    <p><%= @event.date %> </p>
-  </div>
-
-  <div class="info-tag">
-    <h3>Address: </h3>
-    <p><%= @event.address %> </p>
-  </div>
-
-  <div class="info-tag">
-    <h3>Host: </h3>
-    <p><%= @event.user.email %> </p>
-  </div>
-
-  <h4> Add Friends </h3>
-
-  <h4> Start movie voting </h3>
-  <% @selected_movies.each do |movie| %>
-  <%= link_to movie.title, event_selected_movie_path(@event, movie) %>
+  <%= link_to(events_path) do %>
+  <i class="btn-back"><i class="fa-solid fa-arrow-left"></i>
   <% end %>
 
+  <div class="header-show">
+    <h2><%= @event.name %></h2>
+  </div>
+
+  <div class="tags">
+    <div class="info-tag">
+      <h3>Date: </h3>
+      <p><%= @event.date %> </p>
+    </div>
+
+    <div class="info-tag">
+      <h3>Address: </h3>
+      <p><%= @event.address %> </p>
+    </div>
+
+    <div class="info-tag">
+      <h3>Host: </h3>
+      <p><%= @event.user.email %> </p>
+    </div>
+  </div>
+
+  <h4> Add Friends </h4>
+
   <div class="container-links">
-    <%= link_to "Back to events", events_path %>
-    <br>
     <%= link_to "Edit event",  edit_event_path(@event)%>
     <br>
     <%= link_to "Delete event", event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
@@ -35,7 +34,8 @@
     <%= link_to "See all Users", users_event_path%>
     <br>
     <div class="button-start">
-     <div class="btn-cta center"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
+      <div class="btn-cta center"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
     </div>
   </div>
+  
 </div>

@@ -1,3 +1,7 @@
+.container_show {
+  position: relative;
+}
+
 .info-tag h3,
 .info-tag p {
   //background-color: red;
@@ -7,18 +11,23 @@
 
 .header-show {
   background-color: red;
-  margin-top: 30px;
+  //margin-top: 30px;
   text-align: center;
 }
 
 .button-start {
   background-color: red;
+  height: 52px;
+  display: float;
+  align-items: flex-end;
   position: absolute;
-  width: 100vh;
 }
 
-.center {
-  position: relative;
-  align-items: center;
-  border: 3px solid yellow;
+.container-links {
+  border: 3px solid green;
 }
+
+// .center {
+//   margin: 0 auto;
+//   align-items: center;
+// }
