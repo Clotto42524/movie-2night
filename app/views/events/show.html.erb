@@ -70,8 +70,14 @@
 
 
   <%# Button Next/Start %>
+  <% if @event.selected_movies.empty? %>
     <div class="button-start">
       <div class="btn-cta"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
     </div>
+  <% else %>
+    <div class="button-start">
+      <div class="btn-cta"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
+    </div>
+  <% end %>
   </div>
 </div>
