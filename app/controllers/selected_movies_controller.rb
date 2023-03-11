@@ -61,7 +61,9 @@ class SelectedMoviesController < ApplicationController
 
   def top
     @event = Event.find(params[:event_id])
-    vote_counts = SelectedMovie.all.pluck(:vote_count).select { |vote| vote.positive? }
-    @top_movies = SelectedMovie.where(vote_count: vote_counts).sort_by { |h| h[:vote_count] }.reverse
+    @sorted_movies = @event.selected_movies.select { |movie| movie.vote_count.positive? }.sort_by { |h| -h[:vote_count] }
+    # @sorted_movies = @top_movies.sort_by { |h| -h[:vote_count] }
+    # vote_counts = SelectedMovie.all.pluck(:vote_count).select { |vote| vote.positive? }
+    # @top_movies = SelectedMovie.where(vote_count: vote_counts).sort_by { |h| h[:vote_count] }.reverse
   end
 end

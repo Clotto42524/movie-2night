@@ -1,6 +1,6 @@
 <h1>Your top movie picks!</h1>
 
-<% @top_movies.each do |movie|  %>
+<% @sorted_movies.each do |movie|  %>
 <%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}" %>
 <p>Title: <%= movie.title %></p>
 <p>Overview: <%= movie.overview %></p>
