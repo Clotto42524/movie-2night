@@ -1,29 +1,50 @@
-<h1>Events</h1>
-
-
-<div>
-<% @events.each do |event| %>
-    <%= link_to event_path(event) do %>
-    <div class="text-center">
-      <button class="button-event"><p class="texts"><%= event.date %> <%= event.name %></p></button>
+<!-- General design / copy that to every page -->
+<div class="container">
+  <div class="row-header">
+    <div>
     </div>
-    <% end %>
-  <% end %>
-</div>
-
-<%# footbar %>
-<div class="footbar">
-  <div class="flex-container">
-    <%= link_to(events_path) do %>
-    <i class="footbar-links fa-sharp fa-solid fa-calendar-days"></i>
-    <% end %>
-
-    <%= link_to(new_event_path) do %>
-    <i class="footbar-links fa-sharp fa-solid fa-circle-plus"></i>
-    <% end %>
-
-    <%= link_to(invitations_path) do %>
-    <i class="footbar-links fa-sharp fa-solid fa-envelope"></i>
-    <% end %>
   </div>
-</div>
+<!-- General design / copy that to every page -->
+
+
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pt-2 pb-4">
+        <h2 class="event-header">Your upcoming Events</h2>
+      </div>
+      <!-- your code> -->
+      <div>
+        <% @events.each do |event| %>
+          <%= link_to event_path(event) do %>
+            <div class="d-flex justify-content-center">
+              <button class="button-event">
+              <p style="font-style: italic"><%= event.date %> <%= event.name %> </p>
+              </button>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
+
+
+<!-- General design / copy that to every page -->
+  <%# footbar %>
+  <div class="footbar">
+    <div class="flex-container">
+      <%= link_to(events_path) do %>
+      <i class="footbar-links fa-sharp fa-solid fa-calendar-days"></i>
+      <% end %>
+
+      <%= link_to(new_event_path) do %>
+      <i class="footbar-links fa-sharp fa-solid fa-circle-plus"></i>
+      <% end %>
+
+      <%= link_to(invitations_path) do %>
+      <i class="footbar-links fa-sharp fa-solid fa-envelope"></i>
+      <% end %>
+    </div>
+  </div>
+</div> <!-- CLOSING CONTAINER-->
