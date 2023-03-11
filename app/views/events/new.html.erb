@@ -17,7 +17,10 @@
       <div class="form-content">
         <%= simple_form_for @event do |f| %>
           <%= f.input :name %>
-          <%= f.input :date %>
+          <%= f.input :date, as: :string,
+                      wrapper_html: { class: "mb-4" },
+                      label_html: { class: "form-label" },
+                      input_html: { data: { controller: "flatpickr" } } %>
           <%= f.input :address %>
       </div>
     </div>
