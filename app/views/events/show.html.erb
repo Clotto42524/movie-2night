@@ -1,83 +1,102 @@
-<div class="container_show">
+<!-- General design / copy that to every page -->
+<div class="container">
   <div class="row-header">
     <div class="back-button">
       <%= link_to(events_path) do %>
       <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
       <% end %>
     </div>
-
-
-  <%# Header with icons %>
-  <div class="header-name d-flex justify-content-around">
-    <h2><%= @event.name %></h2>
-
-    <%= link_to(edit_event_path(@event)) do %>
-    <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
-    <% end %>
-
-    <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
-    <i class="fa-solid fa-trash icons-pen-trash"></i>
-    <% end %>
   </div>
+<!-- General design / copy that to every page -->
 
 
-  <%# Image %>
-  <div>
-    <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
-  </div>
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pt-2 pb-2">
+        <%# Header with icons %>
+        <div class="header-name d-flex justify-content-around">
+          <h2><%= @event.name %></h2>
+
+          <%= link_to(edit_event_path(@event)) do %>
+          <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
+          <% end %>
+
+          <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
+          <i class="fa-solid fa-trash icons-pen-trash"></i>
+          <% end %>
+        </div>
+      </div>
+
+        <%# Image %>
+        <div class="d-flex justify-content-center">
+          <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
+        </div>
+
+        <%# Div with Hostinfos/Pic %>
+        <div class="host-tags">
+          <div class="avatar-host">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/11/01/Whimsical-Ultra-Cute-Fat-Baby-Yoda-In-Fairytale-Landscape-44164990-1.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+          </div>
+          <div>
+            <h4 class="host-header">Created by: </h4>
+            <p><%= @event.user.email %> </p>
+          </div>
+        </div>
+
+        <%# Date/Address Tags %>
+        <div class="tags">
+          <div class="info-tag">
+            <h3><i class="fa-solid fa-calendar-days icons-user-cal-ort"></i> Date: </h3>
+              <p class="display-info"><%= @event.date %></p>
+          </div>
+
+          <div class="info-tag">
+            <h3><i class="fa-solid fa-location-dot icons-user-cal-ort"></i> Address: </h3><br>
+            <p class="display-info"><%= @event.address %></p>
+          </div>
+        </div>
+
+        <div class="container-links info-tag">
+          <h3><i class="fa-solid fa-user icons-user-cal-ort"></i> Your Guests:</h3>
+          <% if @event.invitations.empty? %>
+            <%= link_to "Add friends", users_event_path, class: "d-none" %>
+          <% else %>
+            <% @event.invitations.each do |invitee| %>
+              <% if invitee.accepted == true %>
+                <p class="display-info"><%= invitee.user.email %>
+                <%= "✅" %></p>
+              <% else %>
+                <p><%= invitee.user.email %>
+                <%= "❌" %></p>
+              <% end %>
+            <% end %>
+            <br>
+            <div class="btn-cta add-friends">
+              <%= link_to "Add friends", users_event_path  %>
+            </div>
+          <% end %>
 
 
-  <%# Div with Hostinfos/Pic %>
-  <div class="user-tags">
-      <h3>Host: </h3>
-      <p><%= @event.user.email %> </p>
-    </div>
-  </div>
-
-
-  <%# Date/Address Tags %>
-  <div class="tags">
-    <div class="info-tag">
-      <h3>Date:</h3>
-        <p class="display-info"><%= @event.date %></p>
-    </div>
-
-    <div class="info-tag">
-      <h3><i class="fa-solid fa-location-dot"></i> Address: </h3><br>
-      <p class="display-info"><%= @event.address %></p>
-    </div>
-  </div>
-
-
-  <h3>Your Guests:</h3>
-  <div class="container-links">
-    <% if @event.invitations.empty? %>
-      <%= link_to "Add friends", users_event_path, class: "d-none" %>
-    <% else %>
-      <% @event.invitations.each do |invitee| %>
-        <% if invitee.accepted == true %>
-          <%= invitee.user.email %>
-          <%= "✅" %>
+        <%# Button Next/Start %>
+        <% if @event.selected_movies.empty? %>
+          <div class="button-start">
+            <div class="btn-cta"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
+          </div>
         <% else %>
-          <%= invitee.user.email %>
-          <%= "❌" %>
+          <div class="button-start">
+            <div class="btn-cta"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
+          </div>
         <% end %>
-      <% end %>
-      <br>
-      <%= link_to "Add friends", users_event_path  %>
-    <% end %>
-<br>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
 
 
-  <%# Button Next/Start %>
-  <% if @event.selected_movies.empty? %>
-    <div class="button-start">
-      <div class="btn-cta"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
+<!-- General design / copy that to every page -->
+    <div class="row-cta d-flex  py-4 px-2">
     </div>
-  <% else %>
-    <div class="button-start">
-      <div class="btn-cta"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
-    </div>
-  <% end %>
-  </div>
-</div>
+</div> <!-- CLOSING CONTAINER-->
