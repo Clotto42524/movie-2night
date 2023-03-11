@@ -3,18 +3,18 @@
 <div class="container">
   <div class="cards">
     <% @event.selected_movies.each do |movie| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem;" data-controller="voting" data-voting-target="votes">
         <%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}", class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= movie.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= movie.overview %></h6>
-          <div data-controller="voting">
-            <p><%= link_to "No", "#", class: "btn btn-primary", data: { action: "click->voting#downVote", voting_target: "votes" } %></p>
-            <p><%= link_to "Yes", selected_movie_path(movie), data: { turbo_method: :patch, action: "click->voting#upVote", voting_target: "votes", }, class: "btn btn-primary" %></p>
+          <div>
+            <p><%= link_to "No", "#", class: "btn btn-primary", data: { action: "click->voting#downVote" } %></p>
+            <p><%= link_to "Yes", selected_movie_path(movie), data: { turbo_method: :patch, action: "click->voting#upVote", }, class: "btn btn-primary" %></p>
           </div>
         </div>
       </div>
     <% end %>
-  <%= link_to "Add Friends", users_event_path(@event), class: "btn btn-primary" %>
   </div>
+  <%= link_to "Add Friends", users_event_path(@event), class: "btn btn-primary mt-4 w-100" %>
 </div>

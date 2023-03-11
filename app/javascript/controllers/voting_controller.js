@@ -9,14 +9,10 @@ export default class extends Controller {
 
   downVote(event) {
     event.preventDefault()
-    this.votesTargets.forEach((button) => {
-      button.classList.add("disabled")
-    })
+    this.votesTarget.classList.add("d-none")
   }
 
   upVote() {
-    this.votesTargets.forEach((button) => {
-      button.classList.add("disabled")
-    })
+    this.votesTarget.classList.add("d-none")
   }
 }
