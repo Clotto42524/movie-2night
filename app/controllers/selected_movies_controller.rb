@@ -2,28 +2,59 @@ require "json"
 require "open-uri"
 
 class SelectedMoviesController < ApplicationController
+  before_action :set_event, only: [:index, :show, :top]
+  before_action :set_movie, only: [:show, :update]
 
   def index
-    @event = Event.find(params[:event_id])
     @selected_movies = SelectedMovie.where(event: @event)
   end
 
   def show
-    @event = Event.find(params[:event_id])
-    @selected_movie = SelectedMovie.find(params[:id])
   end
 
   def create
+    set_genres
+    set_decades
+    set_movies
+    @limited_array.each do |movie|
+      SelectedMovie.create(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: @event)
+    end
+
+    redirect_to event_selected_movies_path(@event)
+  end
+
+  def update
+    @selected_movie.vote_count += 1
+    @selected_movie.save!
+  end
+
+  def top
+    voted_movies = @event.selected_movies.select { |movie| movie.vote_count.positive? }
+    @sorted_movies = voted_movies.sort_by { |h| -h[:vote_count] }
+  end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
+  def set_movie
+    @selected_movie = SelectedMovie.find(params[:id])
+  end
+
+  def set_genres
     @event = Event.find(params[:id])
     @event.selected_movies.destroy_all
-
     genres_hash = {"Action" => 28, "Adventure" => 12, "Animation" => 16, "Comedy" => 35, "Crime" => 80, "Documentary" => 99, "Drama" => 18, "Family" => 10751, "Fantasy" => 14, "History" => 36, "Horror" => 27, "Music" => 10402, "Mystery" => 9648, "Romance" => 10749, "Science Fiction" => 878, "Thriller" => 53, "War" => 10752, "Western" => 37 }
     genres_array = session[:genres]
     genre_ids = genres_array.map do |genre|
       genres_hash[genre]
     end
-    genre_ids_string = genre_ids.join(",")
+    @genre_ids_string = genre_ids.join(",")
+  end
 
+  def set_decades
     release_years = {
       "2020s" => (2020..2023).to_a,
       "2010s" => (2010..2019).to_a,
@@ -40,30 +71,15 @@ class SelectedMoviesController < ApplicationController
     years = decades_array.map do |decade|
       release_years[decade]
     end
-    decades_string = years.flatten.join(",")
+    @decades_string = years.flatten.join(",")
+  end
 
+  def set_movies
     api_key = "78cfc3b30f14c15708feec27e5766e25"
-    url = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&sort_by=popularity.desc&with_genres=#{genre_ids_string}&primary_release_year=#{decades_string}&with_original_language=en"
+    url = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&sort_by=popularity.desc&with_genres=#{@genre_ids_string}&primary_release_year=#{@decades_string}&with_original_language=en"
     movies_serialized = URI.open(url).read
     movies = JSON.parse(movies_serialized)
-    movies_array = movies["results"]
-    movies_array.each do |movie|
-      SelectedMovie.create(title: movie["title"], overview: movie["overview"], release_date: movie["release_date"], poster_path: movie["poster_path"], event: @event)
-    end
-    redirect_to event_selected_movies_path(@event)
-  end
-
-  def update
-    @movie = SelectedMovie.find(params[:id])
-    @movie.vote_count += 1
-    @movie.save!
-  end
-
-  def top
-    @event = Event.find(params[:event_id])
-    @sorted_movies = @event.selected_movies.select { |movie| movie.vote_count.positive? }.sort_by { |h| -h[:vote_count] }
-    # @sorted_movies = @top_movies.sort_by { |h| -h[:vote_count] }
-    # vote_counts = SelectedMovie.all.pluck(:vote_count).select { |vote| vote.positive? }
-    # @top_movies = SelectedMovie.where(vote_count: vote_counts).sort_by { |h| h[:vote_count] }.reverse
+    @movies_array = movies["results"]
+    @limited_array = @movies_array.reject {|item| @movies_array.index(item) > 8 }
   end
 end
