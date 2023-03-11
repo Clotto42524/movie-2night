@@ -12,23 +12,19 @@
   <div class="row-body">
     <div class="body-event">
       <div class="body-title pt-2 pb-4">
-        <h2 class="event-header"> Create a new Event! </h2>
+        <h2 class="event-header"> Create a new Event </h2>
       </div>
-      <div class="form-content">
-        <%= simple_form_for @event do |f| %>
-          <%= f.input :name %>
-          <%= f.input :date %>
-          <%= f.input :address %>
-
-          <div class="row-cta d-flex  py-4 px-2">
-            <div class="submit-button">
-              <div class="btn-cta">
-                <%= f.button :submit %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <!-- your code> -->
     </div>
   </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
+<!-- General design / copy that to every page -->
+    <div class="row-cta d-flex  py-4 px-2">
+      <div class="submit-button">
+        <div class="btn-cta">
+          <%= f.button :submit %>
+            <% end %>
+        </div>
+      </div>
+    </div>
 </div> <!-- CLOSING CONTAINER-->
