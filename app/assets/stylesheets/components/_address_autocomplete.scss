@@ -18,4 +18,15 @@
 
 .mapboxgl-ctrl-geocoder--input {
   height: 38px;
+  color: #F6F8FC !important;
+}
+
+.mapboxgl-ctrl-geocoder--button {
+  background-color: #070D2D;
+  position: absolute;
+  top: 8px;
+}
+
+.mapboxgl-ctrl-geocoder--icon-close {
+  margin-top: 3px;
 }
