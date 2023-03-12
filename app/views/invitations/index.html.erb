@@ -1,15 +1,47 @@
-<div class="container">
-  <div class="list_events">
-    <h2>Invitations</h2>
-
-    <div class="events">
-      <ul><% @received_invitations.each do |invitation|  %>
-        <p>You've been invited to:</p>
-        <li><%= invitation.event.name %>, hosted by <%= invitation.event.user.email %></li>
-        <li><%= link_to "Accept", invitation_path(invitation), data: {turbo_method: :patch}  %></li>
-        <li><%= link_to "Decline", invitation_path(invitation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
-        <% end %>
-      </ul>
+<!-- General design / copy that to every page -->
+<div class="container pt-0">
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(events_path) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
+      <% end %>
     </div>
   </div>
-</div>
+<!-- General design / copy that to every page -->
+
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pt-2 pb-1">
+        <h2 class="event-header">Your Invitations</h2>
+      </div>
+
+
+      <div class="events">
+        <% @received_invitations.each do |invitation|  %>
+          <div class="invitation-div">
+            <h3><%= invitation.event.name %></h3>
+            <div>
+              <h4>Created by</h4>
+              <p class="host-header-in-in"><%= invitation.event.user.email %></p>
+            </div>
+
+            <div class="button-div">
+              <div class="btn-cta btn-acc-dec btn-acc">
+                <%= link_to "Accept", invitation_path(invitation), data: {turbo_method: :patch}  %>
+              </div>
+              <div class="btn-cta btn-acc-dec">
+                <%= link_to "Decline", invitation_path(invitation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
+
+</div> <!-- CLOSING CONTAINER-->
