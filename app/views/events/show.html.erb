@@ -1,5 +1,5 @@
 <!-- General design / copy that to every page -->
-<div class="container">
+<div class="container pt-0">
   <div class="row-header">
     <div class="back-button">
       <%= link_to(events_path) do %>
@@ -8,7 +8,6 @@
     </div>
   </div>
 <!-- General design / copy that to every page -->
-
 
 <!-- Body of the page / different code / Don't forget the CLOSING BODY -->
   <div class="row-body">
@@ -77,17 +76,17 @@
             </div>
           <% end %>
 
-
         <%# Button Next/Start %>
-        <% if @event.selected_movies.empty? %>
-          <div class="button-start">
-            <div class="btn-cta"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
-          </div>
-        <% else %>
-          <div class="button-start">
-            <div class="btn-cta"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
-          </div>
-        <% end %>
+          <% if @event.selected_movies.empty? %>
+            <div class="button-start">
+              <div class="btn-cta mb-4"> <%= link_to "Start movie selection", set_genre_event_path(@event)%></div>
+            </div>
+          <% else %>
+            <div class="button-start">
+              <div class="btn-cta mb-4"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
+            </div>
+          <% end %>
+
         </div>
       </div>
 
@@ -95,8 +94,5 @@
   </div> <!-- CLOSING BODY-->
 <!-- Body of the page / different code -->
 
-
 <!-- General design / copy that to every page -->
-    <div class="row-cta d-flex  py-4 px-2">
-    </div>
 </div> <!-- CLOSING CONTAINER-->
