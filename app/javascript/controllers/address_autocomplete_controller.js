@@ -25,7 +25,4 @@ export default class extends Controller {
     this.addressTarget.value = ""
   }
 
-  disconnect() {
-    this.geocoder.onRemove()
-  }
 }

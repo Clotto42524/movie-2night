@@ -59,7 +59,7 @@
         <div class="container-links info-tag">
           <h3><i class="fa-solid fa-user icons-user-cal-ort"></i> Your Guests:</h3>
           <% if @event.invitations.empty? %>
-            <%= link_to "Add friends", users_event_path, class: "d-none" %>
+            <%= link_to "Add friends", users_event_path, class: "d-none"  %>
           <% else %>
             <% @event.invitations.each do |invitee| %>
               <% if invitee.accepted == true %>
@@ -72,7 +72,7 @@
             <% end %>
             <br>
             <div class="btn-cta add-friends">
-              <%= link_to "Add friends", users_event_path  %>
+              <%= link_to "Add friends", users_event_path %>
             </div>
           <% end %>
 
