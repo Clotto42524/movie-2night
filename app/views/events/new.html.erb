@@ -21,8 +21,11 @@
                       wrapper_html: { class: "mb-4" },
                       label_html: { class: "form-label" },
                       input_html: { data: { controller: "flatpickr" } } %>
-          <%= f.input :address %>
-
+          <%= f.input :address,
+                      label_html: { class: "form-label" },
+                      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                      wrapper_html: {data: {controller: "address-autocomplete",
+                                            address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
           <div class="row-cta d-flex  py-4 px-2">
             <div class="submit-button">
               <div class="btn-cta">
