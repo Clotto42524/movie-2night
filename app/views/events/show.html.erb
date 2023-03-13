@@ -68,8 +68,10 @@
           <% else %>
             <%= render "invitations/status", event: @event  %>
             <br>
-            <div class="btn-cta add-friends">
-              <%= link_to "Add friends", users_event_path  %>
+            <div class="d-flex justify-content-end container-add-friends">
+              <div class="btn-cta add-friends">
+                <%= link_to "Add friends", users_event_path  %>
+              </div>
             </div>
           <% end %>
 
@@ -80,7 +82,7 @@
             </div>
           <% else %>
             <div class="button-start">
-              <div class="btn-cta mb-4"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
+              <div class="btn-cta mb-4"> <%= link_to "See your movies", top_event_selected_movies_path(@event), class: "btn-see-your-movies" %></div>
             </div>
           <% end %>
 

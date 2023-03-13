@@ -1,18 +1,27 @@
-<div class=container>
 
   <%#  check_box_tag(name, value = "1", checked = false, options = {}) %>
   <%# By default form is post, must specify get as it goes to decade and we take params %>
   <%# must post to API in url %>
-  <%= form_with url:  selected_movies_event_path(@event), method: :post do |f| %>
-    <ul>
-      <% @decades.each do |decade| %>
-          <li>
-            <%= check_box_tag 'decades[]', decade, false %>
-            <%= decade  %>
-          </li>
-      <% end %>
-    </ul>
-          <%= f.submit "continue" %>
-  <% end %>
 
+<div data-controller="set-decade">
+  <%= simple_form_for :decade, url: selected_movies_event_path(@event), method: :get do |f| %>
+    <div class="decade-container">
+      <% @decades.each do |decade| %>
+        <div class="checkbox-selector">
+          <label class="tag-item"  data-set-genre-target="button" data-action="click->set-decade#toggleButton">
+            <div class="checkbox-box"><%= check_box_tag 'decades[]', decade, false %></div>
+            <%= decade  %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row-cta d-flex  py-4 px-2">
+      <div class="submit-button">
+        <div class="x">
+          <button class="continue btn-cta" name="submit" type="submit">Continue</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -7,12 +7,11 @@ export default class extends Controller {
   connect() {
   }
 
-  downVote(event) {
-    event.preventDefault()
+  downVote() {
     this.votesTarget.classList.add("d-none")
   }
 
-  upVote(event) {
+  upVote() {
     this.votesTarget.classList.add("d-none")
   }
 }

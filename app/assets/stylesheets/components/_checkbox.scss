@@ -1,0 +1,48 @@
+.tag-item {
+  margin: 8px;
+  padding: 8px;
+  width: 140px;
+  border-radius: 10px;
+  background-color: #A2A6B9;
+  color: #3e4265;
+}
+
+.genre-container {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+}
+
+.genre-container + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.checkbox-box {
+  display: none;
+}
+
+.checkbox-selector {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.active {
+  background-color: #2549eb;
+  color: #f6f8fc;
+}
+
+.continue {
+  background-color: #5A6FCC;
+  text-decoration: none;
+  border: none;
+  color: #F6F8FC;
+  font-size: 15px;
+}

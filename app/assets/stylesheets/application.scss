@@ -19,8 +19,12 @@
 @import "pages/index_invitations";
 @import "pages/show_event";
 @import "pages/index_event";
+@import "components/checkbox";
 @import "pages/index_selected_movies";
-
+@import "pages/top_selected_movies";
+@import "pages/users_event";
+@import "pages/set_decade_event";
+@import "pages/set_genre_event";
 
 h1 {
   font-size: 48px;

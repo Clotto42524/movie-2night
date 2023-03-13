@@ -1,7 +1,0 @@
-<% decades =  %w(2010s 2000s 1990s 1980s 1970s 1960s 1950s 1920s-1940s) %>
-
-<% decades.each do |decade| %>
-  <div class="clickable" data-set-decade-target="button" data-action="click->set-decade#toggleButton">
-    <small> <%= decade %></small>
-  </div>
-<% end %>

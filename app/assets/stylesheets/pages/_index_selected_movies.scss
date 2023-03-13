@@ -14,34 +14,16 @@
   font-size: 20px;
 }
 
-.card {
-  width: 95vw;
-}
-
-.card-body {
-  padding-bottom: 0px;
-  padding-top: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.card-title {
-  color: #161A36;
-  font-size: 16px;
-  margin-top: 8px;
-}
-
-.card-img-top {
-  height: 57vh;
-  width: 86vw;
-  margin: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-}
-
 .btn-add-friends {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.add-friends-size {
+  font-size: 15px;
+}
+
+.back-to-your-event {
+  font-size: 17px;
 }
