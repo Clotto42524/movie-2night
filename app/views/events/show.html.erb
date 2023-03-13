@@ -58,16 +58,16 @@
 
         <div class="container-links info-tag">
           <h3><i class="fa-solid fa-user icons-user-cal-ort"></i> Your Guests:</h3>
-          <% if @event.invitations.empty? %>
-            <%= link_to "Add friends", users_event_path, class: "d-none" %>
+          <% if @event.invitations.empty? && @event.selected_movies.empty? %>
+            <div class="btn-cta add-friends d-none">
+              <%= link_to "Add friends", users_event_path %>
+            </div>
           <% else %>
             <% @event.invitations.each do |invitee| %>
-              <% if invitee.accepted == true %>
-                <p class="display-info"><%= invitee.user.email %>
-                <%= "✅" %></p>
+              <% if invitee.accepted == "Pending"  %>
+                <p class="display-info"><%= "#{invitee.user.email} #{invitee.accepted} ⏳" %>
               <% else %>
-                <p><%= invitee.user.email %>
-                <%= "❌" %></p>
+                <p class="display-info"><%= "#{invitee.user.email} #{invitee.accepted} ✅" %>
               <% end %>
             <% end %>
             <br>
