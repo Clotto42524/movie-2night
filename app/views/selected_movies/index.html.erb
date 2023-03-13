@@ -9,8 +9,8 @@
           <h5 class="card-title"><%= movie.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= movie.overview %></h6>
           <div>
-            <p><%= button_to "No", "#", class: "btn btn-primary", data: { action: "click->voting#downVote" } %></p>
-            <p><%= button_to "Yes", selected_movie_path(movie), data: { turbo_method: :patch, action: "click->voting#upVote", }, class: "btn btn-primary" %></p>
+            <p><%= link_to "No", "#", class: "btn btn-primary", data: { action: "click->voting#downVote" } %></p>
+            <p><%= link_to "Yes", selected_movie_path(movie), data: { turbo_method: :patch, action: "click->voting#upVote", }, class: "btn btn-primary" %></p>
           </div>
         </div>
       </div>
