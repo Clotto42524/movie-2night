@@ -24,7 +24,7 @@
                   <% end %>
                 </p>
                 <p mb-0>
-                  <%= link_to("#", class: "btn-cta yes-btn", data: { action: "click->voting#upVote" }) do %>
+                  <%= link_to(selected_movie_path(movie), data: { turbo_method: :patch, action: "click->voting#upVote" }, class: "btn-cta yes-btn") do %>
                   <i class="fa-solid fa-thumbs-up"></i>
                   <% end %>
                 </p>

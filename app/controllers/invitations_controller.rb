@@ -18,9 +18,22 @@ class InvitationsController < ApplicationController
 
   def update
     @invitation = Invitation.find(params[:id])
+    @event = @invitation.event
     @invitation.accepted = "Accepted"
-    @invitation.save
-    redirect_to invitations_path
+    if @invitation.save
+      EventChannel.broadcast_to(
+        @event, { id: @invitation.id,
+                  html_element: render_to_string(partial: "accepted_status",
+                  locals: {
+                    invitation: @invitation
+                  })
+                }
+      )
+      head :ok
+      # redirect_to invitations_path
+    else
+      render "invitations/index", status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -28,5 +41,4 @@ class InvitationsController < ApplicationController
     @invitation.destroy
     redirect_to invitations_path
   end
-
 end

@@ -1,5 +1,8 @@
 <!-- General design / copy that to every page -->
-<div class="container pt-0">
+<div class="container pt-0"
+  data-controller="event-subscription"
+  data-event-subscription-event-id-value="<%= @event.id %>">
+
   <div class="row-header">
     <div class="back-button">
       <%= link_to(events_path) do %>
@@ -63,13 +66,7 @@
               <%= link_to "Add friends", users_event_path %>
             </div>
           <% else %>
-            <% @event.invitations.each do |invitee| %>
-              <% if invitee.accepted == "Pending"  %>
-                <p class="display-info"><%= "#{invitee.user.email} #{invitee.accepted} ⏳" %>
-              <% else %>
-                <p class="display-info"><%= "#{invitee.user.email} #{invitee.accepted} ✅" %>
-              <% end %>
-            <% end %>
+            <%= render "invitations/status", event: @event  %>
             <br>
             <div class="btn-cta add-friends">
               <%= link_to "Add friends", users_event_path  %>

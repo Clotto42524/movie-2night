@@ -13,7 +13,6 @@ export default class extends Controller {
   }
 
   upVote(event) {
-    event.preventDefault()
     this.votesTarget.classList.add("d-none")
   }
 }
