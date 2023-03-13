@@ -4,7 +4,7 @@
   <%# must post to API in url %>
 
 <div data-controller="set-decade">
-  <%= simple_form_for :decade, url: selected_movies_event_path(@event), method: :get do |f| %>
+  <%= simple_form_for :decade, url: selected_movies_event_path(@event), method: :post do |f| %>
     <div class="decade-container">
       <% @decades.each do |decade| %>
         <div class="checkbox-selector">
