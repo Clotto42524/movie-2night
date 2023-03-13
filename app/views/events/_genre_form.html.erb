@@ -3,12 +3,12 @@
 
 
   <%# By default form is post, must specify get as it goes to decade and we take params %>
-  <div data-controller="set-genre">
+  <div data-controller="setgenre">
     <%= simple_form_for :genre, url: set_decade_event_path, method: :get do |f| %>
     <div class="genre-container">
       <% @genres.each do |genre| %>
-          <div class="checkbox-selector" data-set-genre-target="button" data-action="click->set-genre#toggleButton">
-            <label class="tag-item">
+          <div class="checkbox-selector">
+            <label class="tag-item" data-set-genre-target="button" data-action="click->setgenre#toggleButton">
                 <div class="checkbox-box"><%= check_box_tag 'genre_ids[]', genre, false %></div>
                 <%= genre %>
             </label>
