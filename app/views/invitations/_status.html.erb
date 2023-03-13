@@ -1,0 +1,9 @@
+<div data-event-subscription-target="status">
+  <% @event.invitations.each do |invitee| %>
+    <% if invitee.accepted == "Pending"  %>
+      <p class="display-info" id="<%= invitee.id %>"><%= "#{invitee.user.email} #{invitee.accepted} ⏳" %>
+    <% else %>
+      <%= render "invitations/accepted_status", invitation: invitee  %>
+    <% end %>
+  <% end %>
+</div>

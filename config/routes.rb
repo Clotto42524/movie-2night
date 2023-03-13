@@ -19,8 +19,8 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :invitations, only: [:create]
+    resources :invitations, only: [:create, :update]
   end
   resources :selected_movies, only: [:update]
-  resources :invitations, only: [:index, :update, :destroy]
+  resources :invitations, only: [:index, :destroy]
 end
