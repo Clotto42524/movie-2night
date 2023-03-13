@@ -2,7 +2,7 @@ class InvitationsController < ApplicationController
   def index
     @invitations = Invitation.all
     @received_invitations = @invitations.select do |invitation|
-      invitation.user == current_user && invitation.accepted == false
+      invitation.user == current_user && invitation.accepted == "Pending"
     end
   end
 
@@ -18,8 +18,9 @@ class InvitationsController < ApplicationController
 
   def update
     @invitation = Invitation.find(params[:id])
-    @invitation.accepted = true
+    @invitation.accepted = "Accepted"
     @invitation.save
+    redirect_to invitations_path
   end
 
   def destroy
