@@ -1,20 +1,45 @@
-<h1>Your Movie Selection</h1>
-
-<div class="container">
-  <div class="cards">
-    <% @event.selected_movies.each do |movie| %>
-      <div class="card" style="width: 18rem;" data-controller="voting" data-voting-target="votes">
-        <%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}", class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= movie.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= movie.overview %></h6>
-          <div>
-            <p><%= link_to "No", "#", class: "btn btn-primary", data: { action: "click->voting#downVote" } %></p>
-            <p><%= link_to "Yes", selected_movie_path(movie), data: { turbo_method: :patch, action: "click->voting#upVote", }, class: "btn btn-primary" %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<!-- General design / copy that to every page -->
+<div class="container pt-0">
+  <div class="row-header">
   </div>
-  <%= link_to "Add Friends", users_event_path(@event), class: "btn btn-primary mt-4 w-100" %>
-</div>
+<!-- General design / copy that to every page -->
+
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title">
+      </div>
+      <!-- your code> -->
+      <div class="cards">
+        <% @event.selected_movies.each do |movie| %>
+          <div class="card" data-controller="voting" data-voting-target="votes">
+            <%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}", class: "card-img-top d-flex justify-content-center" %>
+            <div class="card-body">
+              <h6 class="card-title"><%= movie.title %></h6>
+              <h6 class="card-subtitle mb-2 text-muted x"><%= movie.overview %></h6>
+              <div class="div-yes-no d-flex justify-content-around">
+                <p mb-0>
+                  <%= link_to("#", class: "btn-cta no-btn", data: { action: "click->voting#downVote" }) do %>
+                  <i class="fa-solid fa-thumbs-down"></i>
+                  <% end %>
+                </p>
+                <p mb-0>
+                  <%= link_to("#", class: "btn-cta yes-btn", data: { action: "click->voting#upVote" }) do %>
+                  <i class="fa-solid fa-thumbs-up"></i>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="btn-cta btn-add-friends">
+        <%= link_to "Add Friends", users_event_path(@event) %>
+      </div>
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
+
+<!-- General design / copy that to every page -->
+
+</div> <!-- CLOSING CONTAINER-->
