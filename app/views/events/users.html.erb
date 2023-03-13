@@ -1,6 +1,6 @@
 
 <!-- General design / copy that to every page -->
-<div class="container py-0">
+<div class="container py-0" data-controller="select-user"> <%#Edited %>
   <div class="row-header">
     <div class="back-button">
       <%= link_to(event_path) do %>
@@ -14,17 +14,20 @@
   <div class="row-body">
     <div class="body-event">
       <div class="body-title pt-0 pb-4">
-        <h2 class="event-header"> All User </h2>
+        <h2 class="event-header"> All Users </h2>
       </div>
 
-        <%= form_with url: event_invitations_path(@event), method: :post do |f| %>
-
+        <%= simple_form_for :user, url: event_invitations_path(@event), method: :post do |f| %>
+        <div class="user-container">
           <% @users.each do |user| %>
-              <div>
-                <%= check_box_tag 'users[]', user.email, false %>
-                <%= user.email  %>
+              <div class="checkbox-selector">
+                <label class="tag-item"  data-set-genre-target="button" data-action="click->select-user#toggleButton">
+                  <div class="checkbox-box"><%= check_box_tag 'users[]', user.email, false %></div>
+                  <%= user.email  %>
+                </label>
               </div>
           <% end %>
+  </div>
 
         <%# <%= f.submit "Invite Friends"
         <% end %>
