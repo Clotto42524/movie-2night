@@ -1,11 +1,48 @@
-<h1>Your top movie picks!</h1>
 
-<% @sorted_movies.each do |movie|  %>
-<%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}" %>
-<p>Title: <%= movie.title %></p>
-<p>Overview: <%= movie.overview %></p>
-<p>Release Date: <%= movie.release_date %></p>
-<p>Vote count: <%= movie.vote_count %></p>
-<% end %>
 
-<h2><%= link_to "Back to your event", event_path(@event)%></h2>
+
+
+
+<!-- General design / copy that to every page -->
+<div class="container mt-0 pt-0">
+  <div class="row-header">
+  </div>
+<!-- General design / copy that to every page -->
+
+
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+
+      <div class="body-title">
+        <h2 class="event-header"> Your Top Movies </h2>
+      </div>
+
+      <div class="cards">
+        <% @sorted_movies.each do |movie|  %>
+        <div class="card">
+          <%= image_tag "https://image.tmdb.org/t/p/w200#{movie.poster_path}", class: "card-img-top d-flex justify-content-center" %>
+
+          <div class="descrip-result card-subtitle mb-2 text-muted card-body">
+            <p class="p-release d-flex justify-content-end">Release Date: <%= movie.release_date %></p>
+            <h6 class="card-title"><%= movie.title %></h6>
+            <p class="card-subtitle mb-2 text-muted p-tag"><%= movie.overview %></p>
+            <p class="p-vote">Votes: <%= movie.vote_count %></p>
+          </div>
+
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="btn-cta btn-add-friends">
+      <h2><%= link_to "Back to your Event", event_path(@event), class: "back-to-your-event"%></h2>
+    </div>
+
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
+
+
+<!-- General design / copy that to every page -->
+</div> <!-- CLOSING CONTAINER-->
