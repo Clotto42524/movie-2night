@@ -1,3 +1,24 @@
+<!-- General design / copy that to every page -->
+<div class="container pt-0">
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(event_path) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
+      <% end %>
+    </div>
+  </div>
+<!-- General design / copy that to every page -->
 
-<%= render "genre_form" %>
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pb-0">
+        <h2 class="event-header">Choose the Genres </h2>
+      </div>
+      <!-- your code> -->
+      <%= render "genre_form" %>
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
 
+</div> <!-- CLOSING CONTAINER-->

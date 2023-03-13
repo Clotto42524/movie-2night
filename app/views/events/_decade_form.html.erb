@@ -5,23 +5,23 @@
 
 <div data-controller="set-decade">
   <%= simple_form_for :decade, url: selected_movies_event_path(@event), method: :get do |f| %>
-  <div class="decade-container">
-    <% @decades.each do |decade| %>
-      <div class="checkbox-selector">
-        <label class="tag-item"  data-set-genre-target="button" data-action="click->set-decade#toggleButton">
-          <div class="checkbox-box"><%= check_box_tag 'decades[]', decade, false %></div>
-          <%= decade  %>
-        </label>
-      </div>
-    <% end %>
-  </div>
-<div class="row-cta d-flex  py-4 px-2">
-          <div class="submit-button">
-            <div class="x">
-              <button class="continue btn-cta" name="submit" type="submit">Continue</button>
-            </div>
-          </div>
+    <div class="decade-container">
+      <% @decades.each do |decade| %>
+        <div class="checkbox-selector">
+          <label class="tag-item"  data-set-genre-target="button" data-action="click->set-decade#toggleButton">
+            <div class="checkbox-box"><%= check_box_tag 'decades[]', decade, false %></div>
+            <%= decade  %>
+          </label>
         </div>
-        <% end %>
-  </div>
+      <% end %>
+    </div>
+
+    <div class="row-cta d-flex  py-4 px-2">
+      <div class="submit-button">
+        <div class="x">
+          <button class="continue btn-cta" name="submit" type="submit">Continue</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

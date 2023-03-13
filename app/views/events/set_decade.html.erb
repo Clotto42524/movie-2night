@@ -1,18 +1,25 @@
-<h1>Decade</h1>
+<!-- General design / copy that to every page -->
+<div class="container pt-0">
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(set_genre_event_path) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
+      <% end %>
+    </div>
+  </div>
+<!-- General design / copy that to every page -->
 
-<%= render "decade_form" %>
 
-  <%# <div class="btn-select-container" data-controller="set-decade">
-    <div class="row justify-content-center">
-      <div class="col-sm-8 text-center">
-        <h3>Choose your preferred decades</h3>
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pb-3">
+        <h2 class="event-header">Choose the Decades</h2>
+      </div>
+      <!-- your code> -->
+      <%= render "decade_form" %>
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
 
-        <div class="d-flex flex-wrap justify-content-center pt-4">
-        <%= render "selection_decades" %>
-
-<%#         </div>
-<%#  </div> %>
-<%#     </div>
-<%#   </div> %>
-
-<%= link_to "continue/back to show page", event_path %>
+</div> <!-- CLOSING CONTAINER-->
