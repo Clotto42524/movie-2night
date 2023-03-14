@@ -17,7 +17,6 @@ export default class extends Controller {
 
   redirectToVoting(event) {
     const id = event.target.id;
-    
     window.location.assign(`/events/${id}/selected_movies`);
   }
 }

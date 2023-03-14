@@ -37,6 +37,10 @@
         <div class="btn-cta btn-add-friends">
           <%= link_to "Add Friends", users_event_path(@event), class: "add-friends-size" %>
         </div>
+      <% else %>
+        <div class="btn-cta btn-add-friends">
+          <h2><%= link_to "Back to the Event", event_path(@event), class: "back-to-your-event"%></h2>
+        </div>
       <% end %>
     </div>
   </div> <!-- CLOSING BODY-->
