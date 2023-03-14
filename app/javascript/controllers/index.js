@@ -19,5 +19,8 @@ application.register("set-decade", SetDecadeController)
 import SetGenreController from "./set_genre_controller"
 application.register("set-genre", SetGenreController)
 
+import SetUsersController from "./set_users_controller"
+application.register("set-users", SetUsersController)
+
 import VotingController from "./voting_controller"
 application.register("voting", VotingController)
