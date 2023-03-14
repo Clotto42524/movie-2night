@@ -3,10 +3,11 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color:  #242a5a;
+    color: #111212;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
@@ -23,17 +24,15 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
+    border-radius: 10px;
+    background-color: #ffffff;
     padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    box-shadow: 0 100px 100px rgb(46 231 25 / 17%);
   }
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #070303;
     line-height: 1.5em;
   }
 
@@ -45,8 +44,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-radius: 10px;
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
@@ -58,9 +56,13 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h1>Oops, something went wrong </h1>
+      <h1>Server Error 500</h1>
+      <p> We apologise and are fixing the problem </p>
+      <p>Please try again later </p>
+      <img src="Cryingfilm.JPG">
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
