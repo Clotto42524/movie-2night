@@ -15,15 +15,6 @@
   text-align: center;
 }
 
-.button-start {
-  height: 52px;
-  display: float;
-  align-items: flex-end;
-  position: absolute;
-  bottom: -126px;
-  right: 16px;
-}
-
 .header-name {
   display: flex;
 }
@@ -65,14 +56,25 @@
 .add-friends {
   width: 90px;
   height: 36px;
-  margin-top: 10px;
 }
 
 .btn-see-your-movies{
   font-size: 15px;
 }
 
+.btn-start-movie-selection {
+  font-size: 15px;
+}
+
 .container-add-friends {
   margin-right: 13px;
-  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+// .div-see-start-movies {
+//   padding-top: 70px;
+// }
+
+.side-container{
+  min-height: 83vh;
 }
