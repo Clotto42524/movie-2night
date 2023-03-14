@@ -35,8 +35,8 @@
 }
 
 .active {
-  background-color: #2549eb;
-  color: #f6f8fc;
+  background-color: #2549eb !important;
+  color: #f6f8fc !important;
 }
 
 .continue {
@@ -45,4 +45,19 @@
   border: none;
   color: #F6F8FC;
   font-size: 15px;
+}
+
+.tag-item-user {
+  margin: 20px;
+  padding: 20px;
+  //background-color: yellow;
+  width: 280px;
+  border: solid 1px;
+  border-radius: 10px;
+  background-color: #A2A6B9;
+  color: #3e4265;
+}
+
+.user-icon {
+  display: flex;
 }
