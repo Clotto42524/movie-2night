@@ -1,5 +1,8 @@
 <!-- General design / copy that to every page -->
-<div class="container pt-0">
+<div class="container pt-0"
+  data-controller="event-subscription"
+  data-event-subscription-event-id-value="<%= @event.id %>">
+
   <div class="row-header">
     <div class="back-button">
       <%= link_to(events_path) do %>
@@ -58,21 +61,17 @@
 
         <div class="container-links info-tag">
           <h3><i class="fa-solid fa-user icons-user-cal-ort"></i> Your Guests:</h3>
-          <% if @event.invitations.empty? %>
-            <%= link_to "Add friends", users_event_path, class: "d-none"  %>
-          <% else %>
-            <% @event.invitations.each do |invitee| %>
-              <% if invitee.accepted == true %>
-                <p class="display-info"><%= invitee.user.email %>
-                <%= "✅" %></p>
-              <% else %>
-                <p><%= invitee.user.email %>
-                <%= "❌" %></p>
-              <% end %>
-            <% end %>
-            <br>
-            <div class="btn-cta add-friends">
+          <% if @event.invitations.empty? && @event.selected_movies.empty? %>
+            <div class="btn-cta add-friends d-none">
               <%= link_to "Add friends", users_event_path %>
+            </div>
+          <% else %>
+            <%= render "invitations/status", event: @event  %>
+            <br>
+            <div class="d-flex justify-content-end container-add-friends">
+              <div class="btn-cta add-friends">
+                <%= link_to "Add friends", users_event_path  %>
+              </div>
             </div>
           <% end %>
 
@@ -83,7 +82,7 @@
             </div>
           <% else %>
             <div class="button-start">
-              <div class="btn-cta mb-4"> <%= link_to "See your movies", top_event_selected_movies_path(@event) %></div>
+              <div class="btn-cta mb-4"> <%= link_to "See your movies", top_event_selected_movies_path(@event), class: "btn-see-your-movies" %></div>
             </div>
           <% end %>
 

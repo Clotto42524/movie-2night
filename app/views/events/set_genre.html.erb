@@ -1,25 +1,24 @@
-
-<%= render "genre_form" %>
-
-
-<%# <div class="container">
-  <h1>Genre</h1>
-
-  <div class="btn-select-container" data-controller="set-genre">
-    <div class="row justify-content-center">
-      <div class="col-sm-8 text-center">
-        <h3>What are you in the mood for today?</h3>
-
-        <div class="d-flex flex-wrap justify-content-center pt-4"> %>
-        <%# <%= render "selection_genres" %>
-
-        <%# </div>
-      </div>
+<!-- General design / copy that to every page -->
+<div class="container pt-0">
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(event_path) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
+      <% end %>
     </div>
-    <%= link_to "continue", set_decade_event_path %>
-  <%# </div>   %>
+  </div>
+<!-- General design / copy that to every page -->
 
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pb-0">
+        <h2 class="event-header">Choose the Genres </h2>
+      </div>
+      <!-- your code> -->
+      <%= render "genre_form" %>
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
 
-<%#= link_to "continue", set_decade_event_path %>
-
-</div>
+</div> <!-- CLOSING CONTAINER-->

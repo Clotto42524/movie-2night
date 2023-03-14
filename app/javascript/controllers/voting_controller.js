@@ -7,12 +7,17 @@ export default class extends Controller {
   connect() {
   }
 
-  downVote(event) {
-    event.preventDefault()
+  downVote() {
     this.votesTarget.classList.add("d-none")
   }
 
   upVote() {
     this.votesTarget.classList.add("d-none")
+  }
+
+  redirectToVoting(event) {
+    const id = event.target.id;
+    
+    window.location.assign(`/events/${id}/selected_movies`);
   }
 }
