@@ -23,14 +23,9 @@ class InvitationsController < ApplicationController
     if @invitation.save
       EventChannel.broadcast_to(
         @event, { id: @invitation.id,
-                  html_element: render_to_string(partial: "accepted_status",
-                  locals: {
-                    invitation: @invitation
-                  })
-                }
+                  html_element: render_to_string(partial: "accepted_status", locals: { invitation: @invitation }) }
       )
       head :ok
-      # redirect_to invitations_path
     else
       render "invitations/index", status: :unprocessable_entity
     end
