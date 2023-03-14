@@ -1,10 +1,51 @@
-<h1>Edit your Event</h1>
+<!-- General design / copy that to every page -->
+<div class="container">
+  <div class="row-header">
+    <div class="back-button">
+      <%= link_to(event_path(@event)) do %>
+      <div class="btn-back"><i class="fa-solid fa-arrow-left"></i></div>
+      <% end %>
+    </div>
+  </div>
+<!-- General design / copy that to every page -->
 
-<%= simple_form_for @event do |f| %>
-  <%= f.input :name %>
-  <%= f.input :date %>
-  <%= f.input :address %>
-  <%= f.button :submit %>
-<% end %>
+<!-- Body of the page / different code / Don't forget the CLOSING BODY -->
+  <div class="row-body">
+    <div class="body-event">
+      <div class="body-title pt-2 pb-4">
+        <h2 class="event-header">Edit <%= @event.name %></h2>
+      </div>
+      <!-- your code> -->
+      <!--<%= simple_form_for @event do |f| %>
+        <%= f.input :name %>
+        <%= f.input :date %>
+        <%= f.input :address %>
+        <%= f.button :submit %>
+      <% end %>-->
+      <div class="form-content">
+        <%= simple_form_for @event do |f| %>
+          <%= f.input :name %>
+          <%= f.input :date, as: :string,
+                      wrapper_html: { class: "mb-4" },
+                      label_html: { class: "form-label" },
+                      input_html: { data: { controller: "flatpickr" } } %>
+          <%= f.input :address,
+                      label_html: { class: "form-label" },
+                      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                      wrapper_html: {data: {controller: "address-autocomplete",
+                                          address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+          <div class="row-cta d-flex  py-4 px-2">
+            <div class="submit-button">
+              <div class="btn-cta">
+                <%= f.button :submit %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div> <!-- CLOSING BODY-->
+<!-- Body of the page / different code -->
 
-<%= link_to "Back to event", event_path(@event) %>
+</div> <!-- CLOSING CONTAINER-->
