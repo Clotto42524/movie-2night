@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
   toggleButton(event) {
-    console.log(this.element.classList)
     event.target.classList.toggle("active");
   }
 }
