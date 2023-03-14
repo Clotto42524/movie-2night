@@ -14,4 +14,10 @@ export default class extends Controller {
   upVote() {
     this.votesTarget.classList.add("d-none")
   }
+
+  redirectToVoting(event) {
+    const id = event.target.id;
+    
+    window.location.assign(`/events/${id}/selected_movies`);
+  }
 }
