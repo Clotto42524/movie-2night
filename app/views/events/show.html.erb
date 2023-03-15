@@ -19,48 +19,55 @@
 
         <div class="body-title pt-2 pb-2">
         </div>
+
+<div class="row">
           <%# Header with icons %>
+        <p><%= @event.date %></p>
 
-          <div class="header-name d-flex justify-content-around">
-            <h2><%= @event.name %></h2>
 
-              <%= link_to(edit_event_path(@event)) do %>
-              <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
-              <% end %>
+        <div class="header-name">
+          <h2><%= @event.name %></h2>
+        </div>
+</div>
 
-              <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
-              <i class="fa-solid fa-trash icons-pen-trash"></i>
-              <% end %>
+        <%# Image %>
+        <div class="d-flex justify-content-center">
+          <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
+        </div>
+
+          <%# Icons %>
+
+<div class="row">
+        <%# Div with Hostinfos/Pic %>
+        <div class="col-8 host-tags">
+          <div class="avatar-host">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/11/01/Whimsical-Ultra-Cute-Fat-Baby-Yoda-In-Fairytale-Landscape-44164990-1.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
           </div>
-
-          <%# Image %>
-          <div class="d-flex justify-content-center">
-            <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
+          <div>
+            <h4 class="host-header">Created by: </h4>
+            <p><%= @event.user.email %> </p>
           </div>
+        </div>
 
-          <%# Div with Hostinfos/Pic %>
-          <div class="host-tags">
-            <div class="avatar-host">
-              <img src="https://www.creativefabrica.com/wp-content/uploads/2022/11/01/Whimsical-Ultra-Cute-Fat-Baby-Yoda-In-Fairytale-Landscape-44164990-1.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
-            </div>
-            <div>
-              <h4 class="host-header">Created by: </h4>
-              <p><%= @event.user.email %> </p>
-            </div>
+         <div class="col-4 icons-delete-modify d-flex justify-content-end">
+            <%= link_to(edit_event_path(@event)) do %>
+            <i class="fa-solid fa-pen-to-square icons-pen-trash p-2"></i>
+            <% end %>
+
+            <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
+            <i class="fa-solid fa-trash icons-pen-trash p-2 mb-2"></i>
+            <% end %>
+        </div>
+</div>
+
+        <%# Date/Address Tags %>
+
+
+          <div class="info-tag">
+            <h3><i class="fa-solid fa-location-dot icons-user-cal-ort"></i> Address: </h3><br>
+            <p class="display-info"><%= @event.address %></p>
           </div>
-
-          <%# Date/Address Tags %>
-          <div class="tags">
-            <div class="info-tag">
-              <h3><i class="fa-solid fa-calendar-days icons-user-cal-ort"></i> Date: </h3>
-              <p class="display-info"><%= @event.date %></p>
-            </div>
-
-            <div class="info-tag">
-              <h3><i class="fa-solid fa-location-dot icons-user-cal-ort"></i> Address: </h3><br>
-              <p class="display-info"><%= @event.address %></p>
-            </div>
-          </div>
+        </div>
 
 
         <% if @event.invitations.empty? && @event.selected_movies.empty? %>
