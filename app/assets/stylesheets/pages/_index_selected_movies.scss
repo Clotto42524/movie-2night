@@ -1,5 +1,9 @@
 .div-yes-no {
   display: flex;
+  position: absolute;
+  bottom: 0px;
+  // margin-top: 20px;
+  //z-index: 1;
 }
 
 .no-btn {
@@ -26,4 +30,34 @@
 
 .back-to-your-event {
   font-size: 17px;
+}
+
+.my-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--read-more-line-clamp, 4);
+}
+
+.down {
+  margin-bottom: 0px;
+}
+
+.up {
+  margin-bottom: 0px;
+}
+
+.read-more {
+  border: none;
+  text-decoration: none;
+  background-color: #A2A6B9;
+  color: white;
+}
+
+// .read-more {
+//   min-height: 120px;
+// }
+
+.default {
+  min-height: 167px;
 }

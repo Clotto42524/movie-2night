@@ -27,3 +27,6 @@ application.register("set-users", SetUsersController)
 
 import VotingController from "./voting_controller"
 application.register("voting", VotingController)
+
+import ReadMore from 'stimulus-read-more'
+Stimulus.register('read-more', ReadMore)

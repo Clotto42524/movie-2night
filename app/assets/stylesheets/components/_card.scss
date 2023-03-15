@@ -10,12 +10,19 @@
   width: 95vw;
   background-color: #A2A6B9;
   border-radius: 10px;
+  height: auto;
+  min-height: 90vh;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-body {
   padding-bottom: 0px;
   padding-top: 0px;
-  margin: auto;
+  margin-left: 0px;
 }
 
 .card-title {
