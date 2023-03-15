@@ -1,6 +1,3 @@
-<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_image, cl_image_path(@restaurant.photo.key) if @restaurant.photo.attached? %>
-
 <!-- General design / copy that to every page -->
 <div class="container pt-0"
   data-controller="event-subscription"
