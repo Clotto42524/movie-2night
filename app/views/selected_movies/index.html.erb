@@ -18,14 +18,14 @@
               <h6 class="card-title"><%= movie.title %></h6>
 
               <%# Read more/less Button %>
-              <% if movie.overview.length > 200 %>
+              <% if movie.overview.length > 190 %>
                 <div class="default" data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
                   <p  data-read-more-target="content" class="card-subtitle mb-2 text-muted p-tag my-content"><%= movie.overview %></p>
                   <button class="read-more px-0 mb-2" data-action="read-more#toggle"><i>Read more</i></button>
                 </div>
               <% else %>
                 <div class="default">
-                  <p class="card-subtitle mb-2 text-muted p-tag my-content"><%= movie.overview %></p>
+                  <p class="card-subtitle mb-2 text-muted p-tag"><%= movie.overview %></p>
                 </div>
               <% end %>
 
