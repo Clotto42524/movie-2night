@@ -53,11 +53,6 @@
   margin-top: 10px;
 }
 
-.add-friends {
-  width: 90px;
-  height: 36px;
-}
-
 .btn-see-your-movies{
   font-size: 15px;
 }
@@ -66,9 +61,12 @@
   font-size: 15px;
 }
 
-.container-add-friends {
-  margin-right: 13px;
-  margin-bottom: 20px;
+
+
+.add-friend .fa-solid {
+  font-size: 20px;
+  color: #5A6FCC;
+  padding-top: 7px;
 }
 
 // .div-see-start-movies {
@@ -77,4 +75,8 @@
 
 .side-container{
   min-height: 83vh;
+}
+
+.name {
+  background-color: red;
 }

@@ -4,6 +4,7 @@
   data-event-subscription-event-id-value="<%= @event.id %>">
 
   <div class="side-container">
+
     <div class="row-header">
       <div class="back-button">
         <%= link_to(events_path) do %>
@@ -11,27 +12,25 @@
         <% end %>
       </div>
     </div>
-  <!-- General design / copy that to every page -->
 
   <!-- Body of the page / different code / Don't forget the CLOSING BODY -->
     <div class="row-body">
       <div class="body-event">
 
-
         <div class="body-title pt-2 pb-2">
           <%# Header with icons %>
+
           <div class="header-name d-flex justify-content-around">
             <h2><%= @event.name %></h2>
 
-            <%= link_to(edit_event_path(@event)) do %>
-            <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
-            <% end %>
+              <%= link_to(edit_event_path(@event)) do %>
+              <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
+              <% end %>
 
-            <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
-            <i class="fa-solid fa-trash icons-pen-trash"></i>
-            <% end %>
+              <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
+              <i class="fa-solid fa-trash icons-pen-trash"></i>
+              <% end %>
           </div>
-        </div>
 
           <%# Image %>
           <div class="d-flex justify-content-center">
@@ -63,31 +62,44 @@
           </div>
 
 
-          <div class="container-links info-tag">
-            <h3><i class="fa-solid fa-user icons-user-cal-ort"></i> Your Guests:</h3>
-            <% if @event.invitations.empty? && @event.selected_movies.empty? %>
-              <div class="add-friendsx d-none">
-                <%= link_to "Add friends", users_event_path %>
-              </div>
-            <% else %>
-              <%= render "invitations/status", event: @event  %>
-              <br>
-              <div class="d-flex justify-content-end container-add-friends">
-                <div class="btn-cta add-friends">
-                  <%= link_to "Add friends", users_event_path  %>
-                </div>
-              </div>
-            <% end %>
+        <% if @event.invitations.empty? && @event.selected_movies.empty? %>
+          <div class="container-links info-tag ">
+            <div class="text-friend flex-grow-1">
+              <h3>
+                <i class="fa-solid fa-user icons-user-cal-ort"></i>
+              Your Guests:
+              </h3>
+            </div>
           </div>
 
-      </div>
-    </div> <!-- CLOSING BODY-->
-  <!-- Body of the page / different code -->
+        <% else %>
 
-  <!-- General design / copy that to every page -->
-  </div>
+          <div class="container-add-friends d-flex">
+            <div class="text-friend flex-grow-1">
+              <h3>
+                <i class="fa-solid fa-user icons-user-cal-ort"></i>
+              Your Guests:
+              </h3>
+            </div>
+            <div class="add-friend">
+              <%= link_to(users_event_path(@event)) do %>
+                <i class="fa-solid fa-user-plus"></i>
+                <% end %>
+            </div>
+          </div> <!--container-add-friend-->
+          <%= render "invitations/status", event: @event  %>
+
+        <% end %>
+
+      </div> <!--body event-->
+
+    </div> <!--row body-->
+  </div> <!-- CLOSING BODY-->
+
+  </div> <!-- side container-->
 
   <%# Button Next/Start %>
+  <%# <div class="row-cta d-flex  py-4 px-2"> %>
   <div class="d-flex pb-2 px-2 div-see-start-movies">
     <div class="submit-button">
       <div class="btn-cta">
