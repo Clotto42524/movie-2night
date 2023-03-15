@@ -21,16 +21,17 @@
         </div>
 
 <div class="row">
+  <%# Date %>
 
+  <h5 class="display-info-top mb-0"><%= @event.date %> | </h5>
 
   <div class="header-name">
     <h2><%= @event.name %></h2>
   </div>
 
   <%# Address %>
-  <p class="display-info"><i class="fa-solid fa-location-dot icons-user-cal-ort"></i><%= @event.address %></p>
+  <h5 class="display-info-top"><i class="display-address fa-solid fa-location-dot icons-user-cal-ort"></i><%= @event.address %></h5>
 
-</div>
 
         <%# Image %>
         <div class="d-flex justify-content-center">
