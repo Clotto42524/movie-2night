@@ -21,13 +21,15 @@
         </div>
 
 <div class="row">
-          <%# Header with icons %>
-        <p><%= @event.date %></p>
 
 
-        <div class="header-name">
-          <h2><%= @event.name %></h2>
-        </div>
+  <div class="header-name">
+    <h2><%= @event.name %></h2>
+  </div>
+
+  <%# Address %>
+  <p class="display-info"><i class="fa-solid fa-location-dot icons-user-cal-ort"></i><%= @event.address %></p>
+
 </div>
 
         <%# Image %>
@@ -35,7 +37,6 @@
           <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
         </div>
 
-          <%# Icons %>
 
 <div class="row">
         <%# Div with Hostinfos/Pic %>
@@ -61,14 +62,6 @@
 </div>
 
         <%# Date/Address Tags %>
-
-
-          <div class="info-tag">
-            <h3><i class="fa-solid fa-location-dot icons-user-cal-ort"></i> Address: </h3><br>
-            <p class="display-info"><%= @event.address %></p>
-          </div>
-        </div>
-
 
         <% if @event.invitations.empty? && @event.selected_movies.empty? %>
           <div class="container-links info-tag ">
