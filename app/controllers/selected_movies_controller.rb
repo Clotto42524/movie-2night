@@ -84,7 +84,6 @@ class SelectedMoviesController < ApplicationController
   def set_movies
     api_key = "78cfc3b30f14c15708feec27e5766e25"
     url = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&sort_by=popularity.desc&with_genres=#{@genre_ids_string}&primary_release_year=#{@decades_string}&with_original_language=en"
-    raise
     movies_serialized = URI.open(url).read
     movies = JSON.parse(movies_serialized)
     @movies_array = movies["results"]
