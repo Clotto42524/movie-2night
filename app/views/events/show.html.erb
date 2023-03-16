@@ -53,7 +53,7 @@
           <div class="tags">
             <div class="info-tag">
               <h3><i class="fa-solid fa-calendar-days icons-user-cal-ort"></i> Date: </h3>
-              <p class="display-info"><%= @event.date %></p>
+              <p class="display-info"><%= @event.date.strftime("%a, %e %b | %k:%M") %></p>
             </div>
 
             <div class="info-tag">

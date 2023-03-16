@@ -9,11 +9,15 @@ class InvitationsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     invitees = params["users"]
-    invitees.each do |invitee|
-      user = User.find_by(email: invitee)
-      Invitation.create(event: @event, user: user)
+    if invitees.nil?
+      redirect_to event_path(@event)
+    else
+      invitees.each do |invitee|
+        user = User.find_by(email: invitee)
+        Invitation.create(event: @event, user: user)
+      end
+      redirect_to event_path(@event)
     end
-    redirect_to event_path(@event)
   end
 
   def update
