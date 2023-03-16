@@ -48,10 +48,14 @@ class SelectedMoviesController < ApplicationController
     @event.selected_movies.destroy_all
     genres_hash = {"Action" => 28, "Adventure" => 12, "Animation" => 16, "Comedy" => 35, "Crime" => 80, "Documentary" => 99, "Drama" => 18, "Family" => 10751, "Fantasy" => 14, "History" => 36, "Horror" => 27, "Music" => 10402, "Mystery" => 9648, "Romance" => 10749, "Science Fiction" => 878, "Thriller" => 53, "War" => 10752, "Western" => 37 }
     genres_array = session[:genres]
-    genre_ids = genres_array.map do |genre|
-      genres_hash[genre]
+    if genres_array.nil?
+      @genre_ids_string = genres_hash.keys.join(",")
+    else
+      genre_ids = genres_array.map do |genre|
+        genres_hash[genre]
+      end
+      @genre_ids_string = genre_ids.join(",")
     end
-    @genre_ids_string = genre_ids.join(",")
   end
 
   def set_decades
@@ -66,12 +70,15 @@ class SelectedMoviesController < ApplicationController
       "1950s" => (1950..1959).to_a,
       "sub_1950s" => (1940..1949).to_a
     }
-
     decades_array = params["decades"]
-    years = decades_array.map do |decade|
-      release_years[decade]
+    if decades_array.nil?
+      @decades_string = "2020,2021,2022,2023"
+    else
+      years = decades_array.map do |decade|
+        release_years[decade]
+      end
+      @decades_string = years.flatten.join(",")
     end
-    @decades_string = years.flatten.join(",")
   end
 
   def set_movies
