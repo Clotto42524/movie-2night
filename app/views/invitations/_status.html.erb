@@ -2,7 +2,7 @@
   <% @event.invitations.each do |invitee| %>
 
     <% if invitee.accepted == "Pending"  %>
-      <div class="display-info d-flex my-3">
+      <div class="display-info d-flex my-2">
         <div class="invitee-name-display flex-grow-1" id="<%= invitee.id %>"><%= "#{invitee.user.email}" %>
         </div>
         <div class="invitee-accepted">
