@@ -1,9 +1,20 @@
 <div data-event-subscription-target="status">
   <% @event.invitations.each do |invitee| %>
+
     <% if invitee.accepted == "Pending"  %>
-      <p class="display-info" id="<%= invitee.id %>"><%= "#{invitee.user.email} #{invitee.accepted} ⏳" %>
+      <div class="display-info d-flex my-3">
+        <div class="invitee-name-display flex-grow-1" id="<%= invitee.id %>"><%= "#{invitee.user.email}" %>
+        </div>
+        <div class="invitee-accepted">
+        <%= image_tag("hourglass.svg") %>
+        </div>
+      </div>
     <% else %>
-      <%= render "invitations/accepted_status", invitation: invitee  %>
+        <div class="invitee-accepted ml-auto">
+        <%= render "invitations/accepted_status", invitation: invitee  %>
+        </div>
     <% end %>
+
   <% end %>
+   </div>
 </div>

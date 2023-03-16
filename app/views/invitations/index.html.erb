@@ -1,6 +1,6 @@
 <!-- General design / copy that to every page -->
 <div class="container pt-0">
-  
+
 <!-- General design / copy that to every page -->
 
 <!-- Body of the page / different code / Don't forget the CLOSING BODY -->
@@ -12,7 +12,10 @@
 
 
       <div class="events" data-controller="voting">
-        <% @received_invitations.each do |invitation|  %>
+        <% if @received_invitations.nil?  %>
+         <p>You have no current invitations </p>
+        <% else  %>
+        <% @received_invitations.each do |invitation| %>
           <div class="invitation-div">
             <h3><%= invitation.event.name %></h3>
             <div>
@@ -29,8 +32,8 @@
               </div>
             </div>
           </div>
-
-        <% end %>
+            <% end %>
+          <% end %>
       </div>
 
 

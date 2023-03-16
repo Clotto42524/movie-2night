@@ -17,6 +17,7 @@
 
 .header-name {
   display: flex;
+  text-align: center;
 }
 
 .display-info {
@@ -30,10 +31,13 @@
 
 .icons-pen-trash {
   font-size: 20px;
+  color: #F6F8FC;
 }
 
 .icons-user-cal-ort {
   font-size: 20px;
+  color: #F6F8FC;
+  padding-right: 5px;
 }
 
 .host-tags{
@@ -53,11 +57,6 @@
   margin-top: 10px;
 }
 
-.add-friends {
-  width: 90px;
-  height: 36px;
-}
-
 .btn-see-your-movies{
   font-size: 15px;
 }
@@ -66,15 +65,20 @@
   font-size: 15px;
 }
 
-.container-add-friends {
-  margin-right: 13px;
-  margin-bottom: 20px;
+.add-friend .fa-solid {
+  font-size: 20px;
+  color:#F6F8FC;
+  padding-top: 7px;
 }
-
-// .div-see-start-movies {
-//   padding-top: 70px;
-// }
 
 .side-container{
   min-height: 83vh;
 }
+
+// .no-guest {
+//   color: #A2A6B9 !important;
+// }
+
+// .icons-user-no-guest {
+//   color: #A2A6B9 ;
+// }

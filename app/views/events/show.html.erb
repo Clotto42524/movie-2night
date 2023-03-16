@@ -4,6 +4,7 @@
   data-event-subscription-event-id-value="<%= @event.id %>">
 
   <div class="side-container">
+
     <div class="row-header">
       <div class="back-button">
         <%= link_to(events_path) do %>
@@ -11,83 +12,97 @@
         <% end %>
       </div>
     </div>
-  <!-- General design / copy that to every page -->
 
   <!-- Body of the page / different code / Don't forget the CLOSING BODY -->
     <div class="row-body">
       <div class="body-event">
 
-
         <div class="body-title pt-2 pb-2">
-          <%# Header with icons %>
-          <div class="header-name d-flex justify-content-around">
-            <h2><%= @event.name %></h2>
+        </div>
 
+<div class="row">
+  <%# Date %>
+
+  <h5 class="display-info-top mb-0"><%= @event.date.strftime("%a, %e %b | %k:%M") %></h5>
+
+  <div class="header-name py-1">
+    <h2><%= @event.name %></h2>
+  </div>
+
+  <%# Address %>
+  <h5 class="display-info-top pb-1"><i class="display-address fa-solid fa-location-dot icons-user-cal-ort"></i><%= @event.address %></h5>
+
+
+        <%# Image %>
+        <div class="d-flex justify-content-center">
+          <img class="projector py-1" src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?ixlib=rb-4.0.3&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80" alt="movie projector">
+        </div>
+
+
+<div class="row">
+        <%# Div with Hostinfos/Pic %>
+        <div class="col-8 host-tags pl-1">
+          <div class="avatar-host">
+            <img src="https://icons-for-free.com/iconfiles/png/512/vader+starwars+super+villain+vader+icon-1320166752945517581.png" alt="Avatar Logo" style="width:40px; height:40px; background-color: white;" class="rounded-pill">
+          </div>
+          <div>
+            <h4 class="host-header">Created by: </h4>
+            <p><%= @event.user.email %> </p>
+          </div>
+        </div>
+
+         <div class="col-4 icons-delete-modify d-flex justify-content-end m-0 p-0">
             <%= link_to(edit_event_path(@event)) do %>
-            <i class="fa-solid fa-pen-to-square icons-pen-trash"></i>
+            <i class="fa-solid fa-pen-to-square icons-pen-trash px-4"></i>
             <% end %>
 
             <%= link_to(event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} ) do %>
             <i class="fa-solid fa-trash icons-pen-trash"></i>
             <% end %>
-          </div>
         </div>
+</div>
 
-          <%# Image %>
-          <div class="d-flex justify-content-center">
-            <img class="projector" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="movie projector">
-          </div>
+        <%# Date/Address Tags %>
 
-          <%# Div with Hostinfos/Pic %>
-          <div class="host-tags">
-            <div class="avatar-host">
-              <img src="https://www.creativefabrica.com/wp-content/uploads/2022/11/01/Whimsical-Ultra-Cute-Fat-Baby-Yoda-In-Fairytale-Landscape-44164990-1.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
-            </div>
-            <div>
-              <h4 class="host-header">Created by: </h4>
-              <p><%= @event.user.email %> </p>
+        <% if @event.invitations.empty? && @event.selected_movies.empty? %>
+          <div class="container-links info-tag ">
+            <div class="text-friend flex-grow-1">
+              <h3 class="no-guest">
+                <i class="fa-solid fa-user icons-user-no-guest"></i>
+              Your Guests
+              </h3>
+              <h5 class="pt-3 py-1">Choose your movie first, add your friends later!</h5>
             </div>
           </div>
 
-          <%# Date/Address Tags %>
-          <div class="tags">
-            <div class="info-tag">
-              <h3><i class="fa-solid fa-calendar-days icons-user-cal-ort"></i> Date: </h3>
-              <p class="display-info"><%= @event.date.strftime("%a, %e %b | %k:%M") %></p>
+        <% else %>
+
+          <div class="container-add-friends d-flex">
+            <div class="text-friend flex-grow-1">
+              <h3 class= "pt-2">
+                <i class="fa-solid fa-user icons-user-cal-ort"></i>
+              Your Guests
+              </h3>
             </div>
-
-            <div class="info-tag">
-              <h3><i class="fa-solid fa-location-dot icons-user-cal-ort"></i> Address: </h3><br>
-              <p class="display-info"><%= @event.address %></p>
+            <div class="add-friend">
+              <%= link_to(users_event_path(@event)) do %>
+                <i class="fa-solid fa-user-plus"></i>
+                <% end %>
             </div>
-          </div>
+          </div> <!--container-add-friend-->
+          <%= render "invitations/status", event: @event  %>
 
+        <% end %>
 
-          <div class="container-links info-tag">
-            <h3><i class="fa-solid fa-user icons-user-cal-ort"></i> Your Guests:</h3>
-            <% if @event.invitations.empty? && @event.selected_movies.empty? %>
-              <div class="add-friendsx d-none">
-                <%= link_to "Add friends", users_event_path %>
-              </div>
-            <% else %>
-              <%= render "invitations/status", event: @event  %>
-              <br>
-              <div class="d-flex justify-content-end container-add-friends">
-                <div class="btn-cta add-friends">
-                  <%= link_to "Add friends", users_event_path  %>
-                </div>
-              </div>
-            <% end %>
-          </div>
+      </div> <!--body event-->
 
-      </div>
-    </div> <!-- CLOSING BODY-->
-  <!-- Body of the page / different code -->
+    </div> <!--row body-->
+  </div> <!-- CLOSING BODY-->
 
-  <!-- General design / copy that to every page -->
-  </div>
+  </div> <!-- side container-->
 
   <%# Button Next/Start %>
+  <%# <div class="row-cta d-flex  py-4 px-2"> %>
   <div class="d-flex pb-2 px-2 div-see-start-movies">
     <div class="submit-button">
       <div class="btn-cta">
