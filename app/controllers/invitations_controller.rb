@@ -10,13 +10,13 @@ class InvitationsController < ApplicationController
     @event = Event.find(params[:event_id])
     invitees = params["users"]
     if invitees.nil?
-      render "events/users", status: :unprocessable_entity
+      redirect_to event_path(@event)
     else
       invitees.each do |invitee|
         user = User.find_by(email: invitee)
         Invitation.create(event: @event, user: user)
       end
-    redirect_to event_path(@event)
+      redirect_to event_path(@event)
     end
   end
 

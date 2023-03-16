@@ -23,7 +23,7 @@
 <div class="row">
   <%# Date %>
 
-  <h5 class="display-info-top mb-0"><%= @event.date %> | </h5>
+  <h5 class="display-info-top mb-0"><%= @event.date.strftime("%a, %e %b | %k:%M") %></h5>
 
   <div class="header-name py-1">
     <h2><%= @event.name %></h2>
@@ -109,6 +109,10 @@
         <% if @event.selected_movies.empty? %>
           <div>
             <div> <%= link_to "Start movie selection", set_genre_event_path(@event), class: "btn-start-movie-selection"%></div>
+          </div>
+        <% elsif @voted_movies.empty? %>
+          <div>
+            <div> <%= link_to "Vote on your movies", event_selected_movies_path(@event), class: "btn-see-your-movies" %></div>
           </div>
         <% else %>
           <div>
