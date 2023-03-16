@@ -3,10 +3,10 @@
 
     <% if invitee.accepted == "Pending"  %>
       <div class="display-info d-flex my-2">
-        <div class="invitee-name-display flex-grow-1" id="<%= invitee.id %>"><%= "#{invitee.user.email}" %>
+        <div class="invitee-name-display flex-grow-1" id="<%= invitee.id %>"><%= "#{invitee.user.email} ⌛️" %>
         </div>
         <div class="invitee-accepted">
-        <%= image_tag("hourglass.svg") %>
+        <%= "" %>
         </div>
       </div>
     <% else %>
