@@ -23,7 +23,7 @@
 .display-info {
   background-color: #242a5a;
   border-radius: 10px;
-  width: 339px;
+  width: 100%;
   height: 34px;
   padding: 5px 10px;
   margin-bottom: 10px;
@@ -82,3 +82,7 @@
 // .icons-user-no-guest {
 //   color: #A2A6B9 ;
 // }
+
+.container-show {
+  padding: 0px 25px;
+}
