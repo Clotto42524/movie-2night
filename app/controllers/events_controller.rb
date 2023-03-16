@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @selected_movies = SelectedMovie.where(event: @event)
+    @voted_movies = @event.selected_movies.select { |movie| movie.vote_count.positive? }
   end
 
   def new
