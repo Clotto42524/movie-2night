@@ -1,1 +1,8 @@
-<p class=“display-info” id="<%= invitation.id %>"><%= "#{invitation.user.email} ✅" %>
+
+<div class="display-info d-flex my-2" id="<%= invitation.id %>">
+  <div class="invitee-name-display flex-grow-1" ><%= "#{invitation.user.email}" %>
+  </div>
+  <div class="invitee-accepted">
+    <%= image_tag("checkboxgreen.svg") %>
+  </div>
+</div>
