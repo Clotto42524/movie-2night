@@ -16,15 +16,15 @@
         <h2 class="event-header">Add Friends to <br> <%= @event.name %></h2>
       </div>
       <%= simple_form_for :user, url: event_invitations_path(@event), method: :post do |f| %>
+
+      <div class="d-flex justify-content-center">
         <div class="user-container">
           <% @users.each do |user| %>
             <div class="checkbox-selector d-flex justify-content-center">
-              <label class="tag-item-user d-flex justify-content-around align-items-center" data-controller="set-users" data-set-users-target="button" data-action="click->set-users#toggleButton">
+              <label class="tag-item-user" data-controller="set-users" data-set-users-target="button" data-action="click->set-users#toggleButton">
                 <div class="checkbox-box"><%= check_box_tag 'users[]', user.email, false %></div>
-
-                  <i class="fa-solid fa-user-plus" ></i>
-                  <%= user.email  %>
-
+                  <i class="fa-solid fa-user-plus add-friends-icon-div d-flex align-items-center" ></i>
+                  <%= user.email %>
               </label>
             </div>
           <% end %>
@@ -37,6 +37,8 @@
             </div>
           </div>
         </div>
+      </div>
+
       <% end %>
 
     </div>
