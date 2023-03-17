@@ -13,7 +13,7 @@
   <div class="row-body">
     <div class="body-event">
       <div class="body-title pt-0 pb-1">
-        <h2 class="event-header">Add Friends To <br> <%= @event.name %></h2>
+        <h2 class="event-header">Add Friends to <br> <%= @event.name %></h2>
       </div>
       <%= simple_form_for :user, url: event_invitations_path(@event), method: :post do |f| %>
         <div class="user-container">
