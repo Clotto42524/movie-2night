@@ -11,7 +11,7 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "EventChannel", id: this.eventIdValue },
       { received: data => this.#findAndReplace(data) },
-      // { received: data => this.statusTarget.insertAdjacentHTML("beforeend", data) }
+
     )
   }
 
@@ -19,7 +19,6 @@ export default class extends Controller {
     let id = data["id"]
     let html_element = data["html_element"]
     let element = document.getElementById(`${id}`)
-    // let request = document.getElementById(`request-${id}`)
     element.outerHTML = html_element
   }
 }
