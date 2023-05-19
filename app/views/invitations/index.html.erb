@@ -4,13 +4,16 @@
 <!-- General design / copy that to every page -->
 
 <!-- Body of the page / different code / Don't forget the CLOSING BODY -->
-  <div class="row-body">
+<div class="row-body justify-content-lg-center align-items-center">
+  <div class="col-lg-12">
     <div class="body-event">
       <div class="body-title pt-2 pb-1">
         <h2 class="event-header">Your Invitations</h2>
       </div>
+  </div>
 
-
+  <div class="row-body justify-content-lg-center align-items-center">
+    <div class="col-lg-6">
       <div class="events" data-controller="voting">
         <% if @received_invitations.nil?  %>
          <p>You have no current invitations </p>
@@ -35,10 +38,9 @@
             <% end %>
           <% end %>
       </div>
-
-
     </div>
-  </div> <!-- CLOSING BODY-->
+  </div>
+</div> <!-- CLOSING BODY-->
 <!-- Body of the page / different code -->
 
 <!-- General design / copy that to every page -->

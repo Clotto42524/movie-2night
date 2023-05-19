@@ -19,7 +19,8 @@
         <div class="body-title pt-2 pb-2">
         </div>
 
-  <div class="row">
+  <div class="row justify-content-md-center align-items-md-center">
+  <div class="col-lg-4 col-md-6">
     <%# Date %>
     <h5 class="display-info-top mb-0"><%= @event.date.strftime("%a, %e %b | %k:%M") %></h5>
     <%# Event Name  %>
@@ -32,11 +33,12 @@
     <div class="d-flex justify-content-center">
       <img class="projector py-1" src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?ixlib=rb-4.0.3&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80" alt="movie projector">
     </div>
+    </div>
   </div>
 
-    <div class="row">
+    <div class="row justify-content-md-center align-items-md-center">
       <%# Div with Hostinfos/Pic %>
-      <div class="col-8 host-tags pl-1">
+      <div class="col-8 col-lg-3 col-md-4 host-tags pl-1">
         <div class="avatar-host">
           <img src="https://icons-for-free.com/iconfiles/png/512/vader+starwars+super+villain+vader+icon-1320166752945517581.png" alt="Avatar Logo" style="width:40px; height:40px; background-color: white;" class="rounded-pill">
         </div>
@@ -46,7 +48,7 @@
         </div>
       </div>
 
-      <div class="col-4 icons-delete-modify d-flex justify-content-center m-0 p-0">
+      <div class="col-4 col-lg-1 col-md-2 icons-delete-modify m-0 p-0">
         <%= link_to(edit_event_path(@event)) do %>
         <i class="fa-solid fa-pen-to-square icons-pen-trash px-4"></i>
         <% end %>
@@ -58,32 +60,36 @@
     </div>
         <%# Date/Address Tags %>
 
-    <% if @event.invitations.empty? && @event.selected_movies.empty? %>
-      <div class="container-links info-tag ">
-        <div class="text-friend flex-grow-1">
-          <h3 class="no-guest">
-            <i class="fa-solid fa-user icons-user-no-guest"></i>
-          Your Guests
-          </h3>
-          <h5 class="pt-3 py-1">Choose your movie first, add your friends later!</h5>
+    <div class="row justify-content-md-center align-items-md-center">
+    <div class="col-lg-4 col-md-6">
+      <% if @event.invitations.empty? && @event.selected_movies.empty? %>
+        <div class="container-links info-tag ">
+          <div class="text-friend flex-grow-1">
+            <h3 class="no-guest">
+              <i class="fa-solid fa-user icons-user-no-guest"></i>
+            Your Guests
+            </h3>
+            <h5 class="pt-3 py-1">Choose your movie first, add your friends later!</h5>
+          </div>
         </div>
+      <% else %>
+        <div class="container-add-friends d-flex">
+          <div class="text-friend flex-grow-1">
+            <h3 class= "pt-2">
+              <i class="fa-solid fa-user icons-user-cal-ort"></i>
+            Your Guests
+            </h3>
+          </div>
+          <div class="add-friend">
+            <%= link_to(users_event_path(@event)) do %>
+              <i class="fa-solid fa-user-plus"></i>
+              <% end %>
+          </div>
+        </div> <!--container-add-friend-->
+        <%= render "invitations/status", event: @event  %>
+      <% end %>
       </div>
-    <% else %>
-      <div class="container-add-friends d-flex">
-        <div class="text-friend flex-grow-1">
-          <h3 class= "pt-2">
-            <i class="fa-solid fa-user icons-user-cal-ort"></i>
-          Your Guests
-          </h3>
-        </div>
-        <div class="add-friend">
-          <%= link_to(users_event_path(@event)) do %>
-            <i class="fa-solid fa-user-plus"></i>
-            <% end %>
-        </div>
-      </div> <!--container-add-friend-->
-      <%= render "invitations/status", event: @event  %>
-    <% end %>
+     </div> <!--row event-->
 
       </div> <!--body event-->
     </div> <!--row body-->
